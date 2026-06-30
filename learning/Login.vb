@@ -3,7 +3,26 @@
 Public Class Login
 
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+
+    End Sub
+    Private Sub TextBox1_Username(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+
+    End Sub
+
+    Private Sub TextBox2_Password(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+
+    End Sub
+
+    Private Sub BtnLogin_Click(sender As Object, e As EventArgs) Handles BtnLogin.Click
         If TextBox1.Text = "" Or TextBox2.Text = "" Then
             MessageBox.Show("กรุณาใส่ Username กับ Password")
             Exit Sub
@@ -40,20 +59,4 @@ Public Class Login
             MessageBox.Show("ERROR: " & ex.Message)
         End Try
     End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
-    End Sub
-
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
-
-    End Sub
-    Private Sub TextBox1_Username(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-
-    End Sub
-
-    Private Sub TextBox2_Password(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
-
-    End Sub
-
 End Class

@@ -489,7 +489,7 @@ Partial Class Order
         PanelPopup.Controls.Add(Guna2DateTimePicker1)
         PanelPopup.Controls.Add(Guna2Panel1)
         PanelPopup.CustomizableEdges = CustomizableEdges45
-        PanelPopup.Location = New Point(852, 99)
+        PanelPopup.Location = New Point(851, 99)
         PanelPopup.Name = "PanelPopup"
         PanelPopup.ShadowDecoration.CustomizableEdges = CustomizableEdges46
         PanelPopup.Size = New Size(453, 556)
@@ -564,10 +564,10 @@ Partial Class Order
         ' 
         PanelContainer.Controls.Add(ProductPanel)
         PanelContainer.CustomizableEdges = CustomizableEdges33
-        PanelContainer.Location = New Point(9, 198)
+        PanelContainer.Location = New Point(9, 181)
         PanelContainer.Name = "PanelContainer"
         PanelContainer.ShadowDecoration.CustomizableEdges = CustomizableEdges34
-        PanelContainer.Size = New Size(441, 190)
+        PanelContainer.Size = New Size(441, 216)
         PanelContainer.TabIndex = 18
         ' 
         ' ProductPanel
@@ -680,7 +680,7 @@ Partial Class Order
         ' Label13
         ' 
         Label13.AutoSize = True
-        Label13.Location = New Point(312, 185)
+        Label13.Location = New Point(312, 168)
         Label13.Name = "Label13"
         Label13.Size = New Size(48, 15)
         Label13.TabIndex = 15
@@ -689,7 +689,7 @@ Partial Class Order
         ' Label12
         ' 
         Label12.AutoSize = True
-        Label12.Location = New Point(244, 185)
+        Label12.Location = New Point(244, 168)
         Label12.Name = "Label12"
         Label12.Size = New Size(37, 15)
         Label12.TabIndex = 14
@@ -698,7 +698,7 @@ Partial Class Order
         ' Label11
         ' 
         Label11.AutoSize = True
-        Label11.Location = New Point(11, 185)
+        Label11.Location = New Point(11, 168)
         Label11.Name = "Label11"
         Label11.Size = New Size(32, 15)
         Label11.TabIndex = 9
@@ -708,7 +708,7 @@ Partial Class Order
         ' 
         Label10.AutoSize = True
         Label10.Font = New Font("Segoe UI", 10F)
-        Label10.Location = New Point(11, 162)
+        Label10.Location = New Point(11, 145)
         Label10.Name = "Label10"
         Label10.Size = New Size(78, 19)
         Label10.TabIndex = 8
