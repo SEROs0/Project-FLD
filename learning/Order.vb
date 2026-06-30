@@ -56,6 +56,8 @@ Public Class Order
         End Try
 
 
+
+
         ' Dropdown status order
         btnStatus.Items.Clear()
         btnStatus.Items.Add("เลือกสถานะ")

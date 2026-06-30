@@ -236,7 +236,7 @@ Partial Class Store
         ' 
         Guna2PictureBox2.CustomizableEdges = CustomizableEdges7
         Guna2PictureBox2.FillColor = Color.Transparent
-        Guna2PictureBox2.Image = My.Resources.Resources.logo_1
+        Guna2PictureBox2.Image = My.Resources.Resources.Gear
         Guna2PictureBox2.ImageRotate = 0F
         Guna2PictureBox2.Location = New Point(26, 26)
         Guna2PictureBox2.Name = "Guna2PictureBox2"

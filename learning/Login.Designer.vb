@@ -22,12 +22,18 @@ Partial Class Login
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Label1 = New Label()
         TextBox1 = New TextBox()
-        Button1 = New Button()
         Label2 = New Label()
         TextBox2 = New TextBox()
         Label3 = New Label()
+        Guna2PictureBox2 = New Guna.UI2.WinForms.Guna2PictureBox()
+        BtnLogin = New Guna.UI2.WinForms.Guna2Button()
+        CType(Guna2PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Label1
@@ -36,7 +42,7 @@ Partial Class Login
         Label1.BackColor = Color.Transparent
         Label1.Font = New Font("Segoe UI", 30F)
         Label1.ForeColor = SystemColors.ButtonFace
-        Label1.Location = New Point(327, 104)
+        Label1.Location = New Point(304, 104)
         Label1.Name = "Label1"
         Label1.Size = New Size(122, 54)
         Label1.TabIndex = 0
@@ -49,16 +55,6 @@ Partial Class Login
         TextBox1.Name = "TextBox1"
         TextBox1.Size = New Size(151, 23)
         TextBox1.TabIndex = 1
-        ' 
-        ' Button1
-        ' 
-        Button1.Font = New Font("Segoe UI", 12F)
-        Button1.Location = New Point(344, 297)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(75, 38)
-        Button1.TabIndex = 2
-        Button1.Text = "Login"
-        Button1.UseVisualStyleBackColor = True
         ' 
         ' Label2
         ' 
@@ -89,29 +85,64 @@ Partial Class Login
         Label3.TabIndex = 5
         Label3.Text = "Password"
         ' 
+        ' Guna2PictureBox2
+        ' 
+        Guna2PictureBox2.CustomizableEdges = CustomizableEdges1
+        Guna2PictureBox2.FillColor = Color.Transparent
+        Guna2PictureBox2.Image = My.Resources.Resources.Gear
+        Guna2PictureBox2.ImageRotate = 0F
+        Guna2PictureBox2.Location = New Point(432, 108)
+        Guna2PictureBox2.Name = "Guna2PictureBox2"
+        Guna2PictureBox2.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        Guna2PictureBox2.Size = New Size(55, 50)
+        Guna2PictureBox2.TabIndex = 6
+        Guna2PictureBox2.TabStop = False
+        ' 
+        ' BtnLogin
+        ' 
+        BtnLogin.CheckedState.FillColor = Color.Transparent
+        BtnLogin.CustomizableEdges = CustomizableEdges3
+        BtnLogin.DisabledState.BorderColor = Color.DarkGray
+        BtnLogin.DisabledState.CustomBorderColor = Color.DarkGray
+        BtnLogin.DisabledState.FillColor = Color.Transparent
+        BtnLogin.DisabledState.ForeColor = Color.White
+        BtnLogin.FillColor = Color.DodgerBlue
+        BtnLogin.FocusedColor = Color.Transparent
+        BtnLogin.Font = New Font("Segoe UI", 12F)
+        BtnLogin.ForeColor = Color.White
+        BtnLogin.Location = New Point(329, 302)
+        BtnLogin.Name = "BtnLogin"
+        BtnLogin.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        BtnLogin.Size = New Size(122, 36)
+        BtnLogin.TabIndex = 7
+        BtnLogin.Text = "Login"
+        ' 
         ' Login
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.Highlight
         ClientSize = New Size(819, 514)
+        Controls.Add(BtnLogin)
+        Controls.Add(Guna2PictureBox2)
         Controls.Add(Label3)
         Controls.Add(TextBox2)
         Controls.Add(Label2)
-        Controls.Add(Button1)
         Controls.Add(TextBox1)
         Controls.Add(Label1)
         Name = "Login"
         Text = "Form1"
+        CType(Guna2PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
     Friend WithEvents Label1 As Label
     Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Button1 As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents Guna2PictureBox2 As Guna.UI2.WinForms.Guna2PictureBox
+    Friend WithEvents BtnLogin As Guna.UI2.WinForms.Guna2Button
 
 End Class
