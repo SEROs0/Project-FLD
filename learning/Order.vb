@@ -47,16 +47,10 @@ Public Class Order
             DropdownProduct.ValueMember = "product_id"
             DropdownProduct.SelectedIndex = 0
 
-
-
-
             conn.Close()
         Catch ex As Exception
             MessageBox.Show("ERROR (Load Summary): " & ex.Message)
         End Try
-
-
-
 
         ' Dropdown status order
         btnStatus.Items.Clear()
@@ -114,7 +108,7 @@ Public Class Order
         Try
             conn.Open()
 
-            Dim sql As String = "select order_code as OrdersID,order_date as Date,amount as Amount,status as Status from orders"
+            Dim sql As String = "select order_code as รหัสใบสั่งซื้อ,order_date as วันที่สั่ง,amount as จำนวน,status as สถานะ from orders"
             Dim cmd As New SqlCommand(sql, conn)
             Dim adapter As New SqlDataAdapter(cmd)
             Dim dt As New DataTable()
@@ -132,7 +126,7 @@ Public Class Order
     End Sub
 
     Private Sub AddActionButtons()
-        ' ลบ Column ปุ่มเก่าก่อน (ถ้ามี) กันเพิ่มซ้ำตอน Refresh
+
         If DataGridView1.Columns.Contains("btnView") Then
             DataGridView1.Columns.Remove("btnView")
         End If
@@ -144,19 +138,19 @@ Public Class Order
         Dim viewBtn As New DataGridViewButtonColumn()
         viewBtn.Name = "btnView"
         viewBtn.HeaderText = ""
-        viewBtn.Text = "👁 ดู"
+        viewBtn.Text = "ดู Order"
         viewBtn.UseColumnTextForButtonValue = True
         viewBtn.Width = 80
         DataGridView1.Columns.Add(viewBtn)
 
         ' ปุ่ม "Job"
-        Dim jobBtn As New DataGridViewButtonColumn()
-        jobBtn.Name = "btnJob"
-        jobBtn.HeaderText = ""
-        jobBtn.Text = "🔧 Job"
-        jobBtn.UseColumnTextForButtonValue = True
-        jobBtn.Width = 80
-        DataGridView1.Columns.Add(jobBtn)
+        'Dim jobBtn As New DataGridViewButtonColumn()
+        'jobBtn.Name = "btnJob"
+        'jobBtn.HeaderText = ""
+        'jobBtn.Text = "Job"
+        'jobBtn.UseColumnTextForButtonValue = True
+        'jobBtn.Width = 80
+        'DataGridView1.Columns.Add(jobBtn)
     End Sub
 
     Private Sub StyleDataGridView()
@@ -187,18 +181,22 @@ Public Class Order
 
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
-        If e.RowIndex < 0 Then Exit Sub   ' กันกด Header แล้ว Error
+        If e.RowIndex < 0 Then Exit Sub
 
         Dim columnName As String = DataGridView1.Columns(e.ColumnIndex).Name
-        Dim orderId As String = DataGridView1.Rows(e.RowIndex).Cells("OrdersID").Value.ToString()
+        Dim orderId As String = DataGridView1.Rows(e.RowIndex).Cells("รหัสใบสั่งซื้อ").Value.ToString()
 
         If columnName = "btnView" Then
-            MessageBox.Show("ดูรายละเอียด Order: " & orderId)
-            ' TODO: เปิด Form แสดงรายละเอียด Order
+            Dim detail As New OrderDetail()
+            detail.SelectedOrderId = orderId
+            detail.ShowDialog()
 
-        ElseIf columnName = "btnJob" Then
-            MessageBox.Show("สร้าง Job จาก Order: " & orderId)
-            ' TODO: เปิดหน้า Job พร้อมส่ง orderId ไปด้วย
+            'ElseIf columnName = "btnJob" Then
+            'Dim jb As New Job()
+            'jb.SelectedOrderId = orderId
+            'jb.Show()
+            'jb.Hide() '
+
         End If
     End Sub
 
@@ -243,9 +241,9 @@ Public Class Order
             cmd.Connection = conn
 
             If btnStatus.Text = "ทั้งหมด" Then
-                sql = "SELECT order_code as OrdersID,order_date as Date,amount as Amount,status as Status FROM orders"
+                sql = "SELECT order_code as รหัสใบสั่งซื้อ,order_date as วันที่สั่ง,amount as จำนวน,status as สถานะ FROM orders"
             Else
-                sql = "SELECT order_code as OrdersID,order_date as Date,amount as Amount,status as Status FROM orders WHERE status = @status"
+                sql = "SELECT order_code as รหัสใบสั่งซื้อ,order_date as วันที่สั่ง,amount as จำนวน,status as สถานะ FROM orders WHERE status = @status"
                 cmd.Parameters.AddWithValue("@status", btnStatus.Text)
             End If
 
@@ -318,7 +316,6 @@ Public Class Order
         newPanel.Location = New Point(ProductPanel.Location.X, ProductPanel.Location.Y + offsetY)
         newPanel.Tag = "ClonedProductPanel"
 
-        ' ★ สำคัญ: Clone DataTable แยกใหม่ ไม่ใช้ตัวเดียวกัน
         Dim productDt As DataTable = CType(DropdownProduct.DataSource, DataTable).Copy()
 
         Dim newDropdown As New Guna2ComboBox()
@@ -327,9 +324,8 @@ Public Class Order
         newDropdown.DataSource = Nothing
         newDropdown.DisplayMember = "product_name"
         newDropdown.ValueMember = "product_id"
-        newDropdown.DataSource = productDt          ' ใช้ตัวที่ Copy มาใหม่
+        newDropdown.DataSource = productDt
 
-        ' ใช้ BeginInvoke เพื่อรอให้ Binding เสร็จก่อน
         newDropdown.BeginInvoke(Sub()
                                     If newDropdown.Items.Count > 0 Then
                                         newDropdown.SelectedIndex = 0
@@ -406,7 +402,6 @@ Public Class Order
             Exit Sub
         End If
 
-        ' ดึงค่า price จากแถวที่ถูกเลือกใน Dropdown
         Dim selectedRow As DataRowView = DropdownProduct.SelectedItem
         Dim price As Decimal = selectedRow("price")
 
@@ -430,7 +425,6 @@ Public Class Order
     Private Sub CalculateTotal()
         Dim total As Decimal = 0
 
-        ' ★ คำนวณ ProductPanel ต้นแบบก่อน
         If DropdownProduct.SelectedIndex > 0 Then
             Dim selectedRowOriginal As DataRowView = DropdownProduct.SelectedItem
             Dim priceOriginal As Decimal = selectedRowOriginal("price")
@@ -441,7 +435,6 @@ Public Class Order
             total += priceOriginal * qtyOriginal
         End If
 
-        ' คำนวณ Panel ที่ Clone มาเหมือนเดิม
         For Each ctrl As Control In PanelContainer.Controls
             If TypeOf ctrl Is Guna2Panel Then
                 Dim itemPanel As Guna2Panel = CType(ctrl, Guna2Panel)
@@ -504,16 +497,13 @@ Public Class Order
 
     Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveOrderBtn.Click
 
-        ' 1. ตรวจสอบข้อมูลก่อนบันทึก
         If DropdownCustomer.SelectedIndex <= 0 Then
             MessageBox.Show("กรุณาเลือกลูกค้าก่อนบันทึก")
             Exit Sub
         End If
 
-        ' รวบรวมรายการสินค้าทั้งหมด (ทั้งต้นแบบ + ที่ Clone มา)
         Dim productList As New List(Of (productId As Integer, qty As Integer, price As Decimal))
 
-        ' เก็บจาก Panel ต้นแบบ
         If DropdownProduct.SelectedIndex > 0 Then
             Dim row As DataRowView = DropdownProduct.SelectedItem
             Dim pid As Integer = row("product_id")
@@ -526,7 +516,6 @@ Public Class Order
             End If
         End If
 
-        ' เก็บจาก Panel ที่ Clone มา
         For Each ctrl As Control In PanelContainer.Controls
             If TypeOf ctrl Is Guna2Panel AndAlso ctrl.Tag IsNot Nothing AndAlso ctrl.Tag.ToString() = "ClonedProductPanel" Then
                 Dim itemPanel As Guna2Panel = CType(ctrl, Guna2Panel)
@@ -559,13 +548,12 @@ Public Class Order
 
         Next
 
-        ' 2. เช็คว่ามีสินค้าอย่างน้อย 1 รายการไหม
+
         If productList.Count = 0 Then
             MessageBox.Show("กรุณาเลือกสินค้าอย่างน้อย 1 รายการ")
             Exit Sub
         End If
 
-        ' 3. คำนวณยอดรวม
         Dim totalAmount As Decimal = 0
         For Each item In productList
             totalAmount += item.price * item.qty
@@ -577,12 +565,12 @@ Public Class Order
                                                  MessageBoxButtons.YesNo,
                                                  MessageBoxIcon.Question)
 
-        ' ถ้าผู้ใช้กด "ไม่ใช่" (No) ให้จบการทำงานทันที ไม่วิ่งไปทำคำสั่งเซฟด้านล่าง
+
         If result = DialogResult.No Then
             Exit Sub
         End If
 
-        ' 4. บันทึกลง Database
+
         Dim connString As String = "Server=localhost\SQLEXPRESS;Database=PracticeDB;Trusted_Connection=True;TrustServerCertificate=True"
         Dim conn As New SqlConnection(connString)
 
@@ -591,7 +579,7 @@ Public Class Order
             Dim trans As SqlTransaction = conn.BeginTransaction()
 
             Try
-                ' Step 1: INSERT ลง orders ก่อน แล้วดึง order_id ที่เพิ่งสร้าง
+
                 Dim custId As Integer = DropdownCustomer.SelectedValue
 
                 Dim sqlOrder As String = "INSERT INTO orders (cust_id, amount, status, order_date) " &
@@ -604,7 +592,7 @@ Public Class Order
 
                 Dim newOrderId As Integer = Convert.ToInt32(cmdOrder.ExecuteScalar())
 
-                ' Step 2: วนบันทึกสินค้าแต่ละรายการลง order_items
+
                 For Each item In productList
                     Dim sqlItem As String = "INSERT INTO order_items (order_id, product_id, qty) VALUES (@order_id, @product_id, @qty)"
                     Dim cmdItem As New SqlCommand(sqlItem, conn, trans)
@@ -619,16 +607,16 @@ Public Class Order
 
                 MessageBox.Show("บันทึก Order สำเร็จ!")
 
-                ' 5. Reset และ Refresh หน้าจอ
-                CancleBtn_Click(sender, e)   ' ใช้ Logic ลบ/Reset เดียวกับปุ่ม Cancel
+
+                CancleBtn_Click(sender, e)
                 LoadSummaryCards()
                 LoadAllOrders()
 
             Catch ex As Exception
-                ' หากพังจุดใดจุดหนึ่ง ให้ยกเลิกคำสั่งซื้อที่ทำค้างไว้ทั้งหมดทันที ข้อมูลจะได้ไม่เน่า
+
                 trans.Rollback()
-            Throw ex ' ส่งข้อความ Error ไปที่ Catch ตัวนอกสุด
-        End Try
+                Throw ex
+            End Try
 
         Catch ex As Exception
             MessageBox.Show("ERROR (Save Order): " & ex.Message)
