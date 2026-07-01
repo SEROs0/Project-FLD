@@ -115,7 +115,6 @@ Partial Class Order
         Label11 = New Label()
         Label10 = New Label()
         Label9 = New Label()
-        Label8 = New Label()
         Label7 = New Label()
         Label6 = New Label()
         DropdownCustomer = New Guna.UI2.WinForms.Guna2ComboBox()
@@ -482,7 +481,6 @@ Partial Class Order
         PanelPopup.Controls.Add(Label11)
         PanelPopup.Controls.Add(Label10)
         PanelPopup.Controls.Add(Label9)
-        PanelPopup.Controls.Add(Label8)
         PanelPopup.Controls.Add(Label7)
         PanelPopup.Controls.Add(Label6)
         PanelPopup.Controls.Add(DropdownCustomer)
@@ -545,9 +543,10 @@ Partial Class Order
         ' lblTotalAmount
         ' 
         lblTotalAmount.BackColor = Color.Transparent
+        lblTotalAmount.Font = New Font("Segoe UI", 10F)
         lblTotalAmount.Location = New Point(329, 8)
         lblTotalAmount.Name = "lblTotalAmount"
-        lblTotalAmount.Size = New Size(9, 17)
+        lblTotalAmount.Size = New Size(10, 19)
         lblTotalAmount.TabIndex = 1
         lblTotalAmount.Text = "0"
         ' 
@@ -725,17 +724,6 @@ Partial Class Order
         Label9.TabIndex = 7
         Label9.Text = "*"
         ' 
-        ' Label8
-        ' 
-        Label8.AutoSize = True
-        Label8.BackColor = Color.Transparent
-        Label8.ForeColor = Color.Red
-        Label8.Location = New Point(276, 67)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(12, 15)
-        Label8.TabIndex = 6
-        Label8.Text = "*"
-        ' 
         ' Label7
         ' 
         Label7.AutoSize = True
@@ -775,6 +763,7 @@ Partial Class Order
         ' 
         Guna2DateTimePicker1.Checked = True
         Guna2DateTimePicker1.CustomizableEdges = CustomizableEdges39
+        Guna2DateTimePicker1.Enabled = False
         Guna2DateTimePicker1.FillColor = Color.White
         Guna2DateTimePicker1.FocusedColor = Color.Transparent
         Guna2DateTimePicker1.Font = New Font("Segoe UI", 9F)
@@ -795,10 +784,10 @@ Partial Class Order
         Guna2Panel1.Controls.Add(Guna2HtmlLabel2)
         Guna2Panel1.Controls.Add(btnCancel)
         Guna2Panel1.CustomizableEdges = CustomizableEdges43
-        Guna2Panel1.Location = New Point(0, 0)
+        Guna2Panel1.Location = New Point(1, 1)
         Guna2Panel1.Name = "Guna2Panel1"
         Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges44
-        Guna2Panel1.Size = New Size(453, 45)
+        Guna2Panel1.Size = New Size(451, 45)
         Guna2Panel1.TabIndex = 1
         ' 
         ' PictureBox1
@@ -942,7 +931,6 @@ Partial Class Order
     Friend WithEvents DropdownCustomer As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Label10 As Label

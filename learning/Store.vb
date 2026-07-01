@@ -35,7 +35,7 @@ Public Class Store
         Try
             conn.Open()
 
-            Dim sql As String = "Select product_name as Detail, price as Price, category as Category , stock_quantity as Quantity  from products"
+            Dim sql As String = "Select product_name as สินค้า, price as ราคา, category as ประเภทสินค้า , stock_quantity as จำนวนสินค้าในคลัง  from products"
             Dim cmd As New SqlCommand(sql, conn)
             Dim adapter As New SqlDataAdapter(cmd)
             Dim dt As New DataTable()
@@ -141,9 +141,9 @@ Public Class Store
             cmd.Connection = conn
 
             If DropdownCategory.Text = "สินค้าทั้งหมด" Then
-                sql = "select product_name as Detail, price as Price, category as Category , stock_quantity as Quantity from products"
+                sql = "select product_name as สินค้า, price as ราคา, category as ประเภทสินค้า , stock_quantity as จำนวนสินค้าในคลัง from products"
             Else
-                sql = "select product_name as Detail, price as Price, category as Category , stock_quantity as Quantity from products where category = @category"
+                sql = "select product_name as สินค้า, price as ราคา, category as ประเภทสินค้า , stock_quantity as จำนวนสินค้าในคลัง from products where category = @category"
                 cmd.Parameters.AddWithValue("@category", DropdownCategory.Text)
             End If
 
