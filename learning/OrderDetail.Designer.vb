@@ -22,17 +22,21 @@ Partial Class OrderDetail
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        btnCancelOrder = New Guna.UI2.WinForms.Guna2Button()
+        btnJOB = New Guna.UI2.WinForms.Guna2Button()
         lblTotal = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2HtmlLabel11 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         DataGridView1 = New DataGridView()
@@ -49,7 +53,6 @@ Partial Class OrderDetail
         Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
         Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         btnCancel = New Guna.UI2.WinForms.Guna2Button()
-        btnJOB = New Guna.UI2.WinForms.Guna2Button()
         Guna2Panel1.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         Guna2Panel2.SuspendLayout()
@@ -60,6 +63,7 @@ Partial Class OrderDetail
         ' 
         Guna2Panel1.BorderColor = Color.Black
         Guna2Panel1.BorderThickness = 2
+        Guna2Panel1.Controls.Add(btnCancelOrder)
         Guna2Panel1.Controls.Add(btnJOB)
         Guna2Panel1.Controls.Add(lblTotal)
         Guna2Panel1.Controls.Add(Guna2HtmlLabel11)
@@ -74,12 +78,48 @@ Partial Class OrderDetail
         Guna2Panel1.Controls.Add(lblOrderID)
         Guna2Panel1.Controls.Add(Guna2HtmlLabel2)
         Guna2Panel1.Controls.Add(Guna2Panel2)
-        Guna2Panel1.CustomizableEdges = CustomizableEdges9
+        Guna2Panel1.CustomizableEdges = CustomizableEdges11
         Guna2Panel1.Location = New Point(2, 2)
         Guna2Panel1.Name = "Guna2Panel1"
-        Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges10
+        Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges12
         Guna2Panel1.Size = New Size(415, 555)
         Guna2Panel1.TabIndex = 0
+        ' 
+        ' btnCancelOrder
+        ' 
+        btnCancelOrder.CustomizableEdges = CustomizableEdges1
+        btnCancelOrder.DisabledState.BorderColor = Color.DarkGray
+        btnCancelOrder.DisabledState.CustomBorderColor = Color.DarkGray
+        btnCancelOrder.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnCancelOrder.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnCancelOrder.FillColor = Color.Red
+        btnCancelOrder.Font = New Font("Segoe UI", 9F)
+        btnCancelOrder.ForeColor = Color.White
+        btnCancelOrder.Image = My.Resources.Resources.Cancel
+        btnCancelOrder.Location = New Point(193, 483)
+        btnCancelOrder.Name = "btnCancelOrder"
+        btnCancelOrder.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        btnCancelOrder.Size = New Size(102, 28)
+        btnCancelOrder.TabIndex = 14
+        btnCancelOrder.Text = "ยกเลืก Order"
+        ' 
+        ' btnJOB
+        ' 
+        btnJOB.CustomizableEdges = CustomizableEdges3
+        btnJOB.DisabledState.BorderColor = Color.DarkGray
+        btnJOB.DisabledState.CustomBorderColor = Color.DarkGray
+        btnJOB.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnJOB.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnJOB.FillColor = Color.DodgerBlue
+        btnJOB.Font = New Font("Segoe UI", 9F)
+        btnJOB.ForeColor = Color.White
+        btnJOB.Image = My.Resources.Resources.Task
+        btnJOB.Location = New Point(311, 483)
+        btnJOB.Name = "btnJOB"
+        btnJOB.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        btnJOB.Size = New Size(72, 28)
+        btnJOB.TabIndex = 13
+        btnJOB.Text = "JOB"
         ' 
         ' lblTotal
         ' 
@@ -200,23 +240,23 @@ Partial Class OrderDetail
         Guna2Panel2.Controls.Add(Guna2PictureBox1)
         Guna2Panel2.Controls.Add(Guna2HtmlLabel1)
         Guna2Panel2.Controls.Add(btnCancel)
-        Guna2Panel2.CustomizableEdges = CustomizableEdges7
+        Guna2Panel2.CustomizableEdges = CustomizableEdges9
         Guna2Panel2.Location = New Point(2, 2)
         Guna2Panel2.Name = "Guna2Panel2"
-        Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         Guna2Panel2.Size = New Size(411, 56)
         Guna2Panel2.TabIndex = 0
         ' 
         ' Guna2PictureBox1
         ' 
-        Guna2PictureBox1.CustomizableEdges = CustomizableEdges3
+        Guna2PictureBox1.CustomizableEdges = CustomizableEdges5
         Guna2PictureBox1.ErrorImage = Nothing
         Guna2PictureBox1.FillColor = Color.Transparent
         Guna2PictureBox1.Image = My.Resources.Resources.Document1
         Guna2PictureBox1.ImageRotate = 0F
         Guna2PictureBox1.Location = New Point(3, 4)
         Guna2PictureBox1.Name = "Guna2PictureBox1"
-        Guna2PictureBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        Guna2PictureBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         Guna2PictureBox1.Size = New Size(48, 52)
         Guna2PictureBox1.TabIndex = 3
         Guna2PictureBox1.TabStop = False
@@ -234,7 +274,7 @@ Partial Class OrderDetail
         ' 
         ' btnCancel
         ' 
-        btnCancel.CustomizableEdges = CustomizableEdges5
+        btnCancel.CustomizableEdges = CustomizableEdges7
         btnCancel.DisabledState.BorderColor = Color.DarkGray
         btnCancel.DisabledState.CustomBorderColor = Color.DarkGray
         btnCancel.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -246,33 +286,15 @@ Partial Class OrderDetail
         btnCancel.Image = My.Resources.Resources.Close_Window
         btnCancel.Location = New Point(381, 15)
         btnCancel.Name = "btnCancel"
-        btnCancel.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        btnCancel.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         btnCancel.Size = New Size(23, 24)
         btnCancel.TabIndex = 1
-        ' 
-        ' btnJOB
-        ' 
-        btnJOB.CustomizableEdges = CustomizableEdges1
-        btnJOB.DisabledState.BorderColor = Color.DarkGray
-        btnJOB.DisabledState.CustomBorderColor = Color.DarkGray
-        btnJOB.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        btnJOB.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btnJOB.FillColor = Color.DodgerBlue
-        btnJOB.Font = New Font("Segoe UI", 9F)
-        btnJOB.ForeColor = Color.White
-        btnJOB.Image = My.Resources.Resources.Task
-        btnJOB.Location = New Point(311, 483)
-        btnJOB.Name = "btnJOB"
-        btnJOB.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        btnJOB.Size = New Size(72, 28)
-        btnJOB.TabIndex = 13
-        btnJOB.Text = "JOB"
         ' 
         ' OrderDetail
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(422, 568)
+        ClientSize = New Size(422, 561)
         Controls.Add(Guna2Panel1)
         Name = "OrderDetail"
         Text = "OrderDetail"
@@ -303,4 +325,5 @@ Partial Class OrderDetail
     Friend WithEvents Guna2HtmlLabel11 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents btnJOB As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents btnCancelOrder As Guna.UI2.WinForms.Guna2Button
 End Class

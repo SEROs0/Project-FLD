@@ -44,8 +44,10 @@ Public Class OrderDetail
 
                 If status = "PENDING" Then
                     btnJOB.Visible = True
+                    btnCancelOrder.Visible = True
                 Else
                     btnJOB.Visible = False
+                    btnCancelOrder.Visible = False
                 End If
             End If
 
@@ -130,7 +132,6 @@ Public Class OrderDetail
         Try
             conn.Open()
 
-            ' ดึง order_id จาก order_code ที่ส่งมา
             Dim cmdGetId As New SqlCommand(
             "SELECT order_id FROM orders WHERE order_code = @code", conn)
             cmdGetId.Parameters.AddWithValue("@code", SelectedOrderId)
@@ -142,7 +143,6 @@ Public Class OrderDetail
                 Exit Sub
             End If
 
-            ' เช็คว่า job นี้มีอยู่แล้วหรือยัง กันสร้างซ้ำ
             Dim cmdCheck As New SqlCommand(
             "SELECT COUNT(*) FROM jobs WHERE order_id = @order_id", conn)
             cmdCheck.Parameters.AddWithValue("@order_id", orderId)
@@ -151,10 +151,9 @@ Public Class OrderDetail
             If existing > 0 Then
                 MessageBox.Show("Job สำหรับ Order นี้ถูกสร้างไปแล้ว")
                 conn.Close()
-                GoTo OpenJob
+
             End If
 
-            ' สร้าง Job ใหม่
             Dim cmdInsert As New SqlCommand(
             "INSERT INTO jobs (order_id, job_status, created_date) 
              VALUES (@order_id, 'CHECKING', GETDATE())", conn)
@@ -168,11 +167,58 @@ Public Class OrderDetail
             MessageBox.Show("ERROR: " & ex.Message)
         End Try
 
-OpenJob:
-        Dim jbd As New Job()
-        jbd.SelectedOrderId = SelectedOrderId  ' ส่ง order_code ไปให้หน้า Job ด้วย
-        jbd.Show()
-        Me.Close()
+
+    End Sub
+
+    Private Sub btnCancelOrder_Click(sender As Object, e As EventArgs) Handles btnCancelOrder.Click
+
+        Dim result As DialogResult = MessageBox.Show(
+        "คุณต้องการยกเลิก Order นี้ใช่หรือไม่?",
+        "ยืนยันการยกเลิก",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Warning)
+
+        If result = DialogResult.No Then Exit Sub
+
+        Dim connString As String = "Server=localhost\SQLEXPRESS;DATABASE=PracticeDB;Trusted_Connection=True;TrustServerCertificate=True"
+        Dim conn As New SqlConnection(connString)
+        Dim trans As SqlTransaction = Nothing
+
+        Try
+            conn.Open()
+            trans = conn.BeginTransaction()
+
+            Dim cmdOrder As New SqlCommand(
+            "UPDATE orders SET status = 'CANCELLED' WHERE order_code = @orderId",
+            conn, trans)
+            cmdOrder.Parameters.AddWithValue("@orderId", SelectedOrderId)
+            cmdOrder.ExecuteNonQuery()
+
+            Dim cmdItem As New SqlCommand(
+            "UPDATE order_items SET item_status = 'CANCELLED' 
+             WHERE order_id = (SELECT order_id FROM orders WHERE order_code = @orderId)",
+            conn, trans)
+            cmdItem.Parameters.AddWithValue("@orderId", SelectedOrderId)
+            cmdItem.ExecuteNonQuery()
+
+            Dim cmdJob As New SqlCommand(
+                "UPDATE jobs SET job_status = 'CANCELLED'
+                WHERE order_id = (SELECT order_id FROM orders WHERE order_code = @orderId)", conn, trans)
+            cmdJob.Parameters.AddWithValue("@orderId", SelectedOrderId)
+            cmdJob.ExecuteNonQuery()
+
+            trans.Commit()
+            conn.Close()
+
+            MessageBox.Show("ยกเลิก Order เรียบร้อยแล้ว")
+            Me.Close()
+
+        Catch ex As Exception
+            If trans IsNot Nothing Then
+                trans.Rollback()
+            End If
+            MessageBox.Show("ERROR (Cancel Order): " & ex.Message)
+        End Try
 
     End Sub
 End Class
