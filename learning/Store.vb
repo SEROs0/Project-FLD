@@ -62,7 +62,7 @@ Public Class Store
             .RowHeadersVisible = False
             .AllowUserToAddRows = False
             .ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245)
-            .ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 9, FontStyle.Bold)
+            .ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 10, FontStyle.Bold)
             .ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
             .DefaultCellStyle.Font = New Font("Segoe UI", 9)
             .DefaultCellStyle.SelectionBackColor = Color.FromArgb(220, 235, 252)

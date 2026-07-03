@@ -58,7 +58,7 @@ Public Class Order
         btnStatus.Items.Add("ทั้งหมด")
         btnStatus.Items.Add("COMPLETE")
         btnStatus.Items.Add("PENDING")
-        btnStatus.Items.Add("CANCLE")
+        btnStatus.Items.Add("CANCELLED")
         btnStatus.SelectedIndex = 0
 
         PanelPopup.Visible = False
@@ -108,7 +108,7 @@ Public Class Order
         Try
             conn.Open()
 
-            Dim sql As String = "select order_code as รหัสใบสั่งซื้อ,order_date as วันที่สั่ง,amount as จำนวน,status as สถานะ from orders"
+            Dim sql As String = "select order_code as รหัสใบสั่งซื้อ,order_date as วันที่สั่ง,amount as จำนวน,status as สถานะ from orders order by order_id desc"
             Dim cmd As New SqlCommand(sql, conn)
             Dim adapter As New SqlDataAdapter(cmd)
             Dim dt As New DataTable()
@@ -130,14 +130,14 @@ Public Class Order
         If DataGridView1.Columns.Contains("btnView") Then
             DataGridView1.Columns.Remove("btnView")
         End If
-        If DataGridView1.Columns.Contains("btnJob") Then
-            DataGridView1.Columns.Remove("btnJob")
-        End If
+        'If DataGridView1.Columns.Contains("btnJob") Then
+        'DataGridView1.Columns.Remove("btnJob")
+        'End If 
 
         ' ปุ่ม "ดู"
         Dim viewBtn As New DataGridViewButtonColumn()
         viewBtn.Name = "btnView"
-        viewBtn.HeaderText = ""
+        viewBtn.HeaderText = "ดำเนินการ"
         viewBtn.Text = "ดู Order"
         viewBtn.UseColumnTextForButtonValue = True
         viewBtn.Width = 80
@@ -175,10 +175,9 @@ Public Class Order
             .EnableHeadersVisualStyles = False
             .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
             .ColumnHeadersVisible = True
-            .ScrollBars = ScrollBars.None
+            .ScrollBars = ScrollBars.Both
         End With
     End Sub
-
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
         If e.RowIndex < 0 Then Exit Sub

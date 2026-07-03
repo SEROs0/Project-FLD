@@ -250,7 +250,7 @@ Partial Class Order
         ' 
         Label2.AutoSize = True
         Label2.Font = New Font("Segoe UI", 12F)
-        Label2.ForeColor = Color.Black
+        Label2.ForeColor = Color.White
         Label2.Location = New Point(4, 5)
         Label2.Name = "Label2"
         Label2.Size = New Size(97, 21)
@@ -261,7 +261,7 @@ Partial Class Order
         ' 
         Label3.AutoSize = True
         Label3.Font = New Font("Segoe UI", 12F)
-        Label3.ForeColor = Color.Black
+        Label3.ForeColor = Color.Gold
         Label3.Location = New Point(3, 5)
         Label3.Name = "Label3"
         Label3.Size = New Size(88, 21)
@@ -272,7 +272,7 @@ Partial Class Order
         ' 
         Label4.AutoSize = True
         Label4.Font = New Font("Segoe UI", 12F)
-        Label4.ForeColor = Color.Black
+        Label4.ForeColor = Color.PaleGreen
         Label4.Location = New Point(3, 5)
         Label4.Name = "Label4"
         Label4.Size = New Size(57, 21)
@@ -283,7 +283,7 @@ Partial Class Order
         ' 
         Label5.AutoSize = True
         Label5.Font = New Font("Segoe UI", 12F)
-        Label5.ForeColor = Color.Black
+        Label5.ForeColor = Color.White
         Label5.Location = New Point(3, 5)
         Label5.Name = "Label5"
         Label5.Size = New Size(100, 21)
@@ -294,8 +294,8 @@ Partial Class Order
         ' 
         lblStorkValue.AutoSize = True
         lblStorkValue.Font = New Font("Segoe UI", 15F)
-        lblStorkValue.ForeColor = Color.Black
-        lblStorkValue.Location = New Point(14, 31)
+        lblStorkValue.ForeColor = Color.White
+        lblStorkValue.Location = New Point(4, 31)
         lblStorkValue.Name = "lblStorkValue"
         lblStorkValue.Size = New Size(23, 28)
         lblStorkValue.TabIndex = 6
@@ -305,8 +305,8 @@ Partial Class Order
         ' 
         lblStatusPendingValue.AutoSize = True
         lblStatusPendingValue.Font = New Font("Segoe UI", 15F)
-        lblStatusPendingValue.ForeColor = Color.Orange
-        lblStatusPendingValue.Location = New Point(13, 31)
+        lblStatusPendingValue.ForeColor = Color.Gold
+        lblStatusPendingValue.Location = New Point(5, 31)
         lblStatusPendingValue.Name = "lblStatusPendingValue"
         lblStatusPendingValue.Size = New Size(23, 28)
         lblStatusPendingValue.TabIndex = 7
@@ -316,8 +316,8 @@ Partial Class Order
         ' 
         lblStatusCompleteValue.AutoSize = True
         lblStatusCompleteValue.Font = New Font("Segoe UI", 15F)
-        lblStatusCompleteValue.ForeColor = Color.LimeGreen
-        lblStatusCompleteValue.Location = New Point(12, 31)
+        lblStatusCompleteValue.ForeColor = Color.PaleGreen
+        lblStatusCompleteValue.Location = New Point(4, 31)
         lblStatusCompleteValue.Name = "lblStatusCompleteValue"
         lblStatusCompleteValue.Size = New Size(23, 28)
         lblStatusCompleteValue.TabIndex = 8
@@ -327,8 +327,8 @@ Partial Class Order
         ' 
         lblAmountTotalValue.AutoSize = True
         lblAmountTotalValue.Font = New Font("Segoe UI", 15F)
-        lblAmountTotalValue.ForeColor = Color.Black
-        lblAmountTotalValue.Location = New Point(12, 31)
+        lblAmountTotalValue.ForeColor = Color.White
+        lblAmountTotalValue.Location = New Point(3, 31)
         lblAmountTotalValue.Name = "lblAmountTotalValue"
         lblAmountTotalValue.Size = New Size(23, 28)
         lblAmountTotalValue.TabIndex = 9
@@ -336,38 +336,42 @@ Partial Class Order
         ' 
         ' Panel2
         ' 
+        Panel2.BackColor = Color.SteelBlue
         Panel2.Controls.Add(lblStorkValue)
         Panel2.Controls.Add(Label2)
-        Panel2.Location = New Point(147, 101)
+        Panel2.Location = New Point(147, 97)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(103, 63)
+        Panel2.Size = New Size(103, 72)
         Panel2.TabIndex = 10
         ' 
         ' Panel3
         ' 
+        Panel3.BackColor = Color.Chocolate
         Panel3.Controls.Add(lblStatusPendingValue)
         Panel3.Controls.Add(Label3)
-        Panel3.Location = New Point(252, 101)
+        Panel3.Location = New Point(256, 97)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(93, 63)
+        Panel3.Size = New Size(93, 72)
         Panel3.TabIndex = 11
         ' 
         ' Panel4
         ' 
+        Panel4.BackColor = Color.Green
         Panel4.Controls.Add(lblStatusCompleteValue)
         Panel4.Controls.Add(Label4)
-        Panel4.Location = New Point(348, 101)
+        Panel4.Location = New Point(355, 97)
         Panel4.Name = "Panel4"
-        Panel4.Size = New Size(67, 63)
+        Panel4.Size = New Size(67, 72)
         Panel4.TabIndex = 12
         ' 
         ' Panel5
         ' 
+        Panel5.BackColor = Color.DarkCyan
         Panel5.Controls.Add(lblAmountTotalValue)
         Panel5.Controls.Add(Label5)
-        Panel5.Location = New Point(421, 101)
+        Panel5.Location = New Point(428, 97)
         Panel5.Name = "Panel5"
-        Panel5.Size = New Size(111, 63)
+        Panel5.Size = New Size(111, 72)
         Panel5.TabIndex = 13
         ' 
         ' DataGridView1
@@ -376,7 +380,7 @@ Partial Class Order
         DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridView1.Location = New Point(147, 280)
         DataGridView1.Name = "DataGridView1"
-        DataGridView1.Size = New Size(686, 358)
+        DataGridView1.Size = New Size(686, 375)
         DataGridView1.TabIndex = 17
         ' 
         ' Panel6
