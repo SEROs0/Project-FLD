@@ -21,7 +21,7 @@ Public Class Store
 
         LoadAllProducts()
         LoadSummaryCards()
-        StyleDataGridView()
+
     End Sub
 
     Private Sub DataGridView4_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
@@ -41,7 +41,7 @@ Public Class Store
             Dim dt As New DataTable()
             adapter.Fill(dt)
 
-            DataGridView1.DataSource = dt
+            dataStore.DataSource = dt
 
             conn.Close()
 
@@ -50,31 +50,7 @@ Public Class Store
         End Try
     End Sub
 
-    Private Sub StyleDataGridView()
-        StyleGrid(DataGridView1)
 
-    End Sub
-
-    Private Sub StyleGrid(grid As DataGridView)
-        With grid
-            .BackgroundColor = Color.White
-            .BorderStyle = BorderStyle.None
-            .RowHeadersVisible = False
-            .AllowUserToAddRows = False
-            .ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245)
-            .ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 10, FontStyle.Bold)
-            .ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-            .DefaultCellStyle.Font = New Font("Segoe UI", 9)
-            .DefaultCellStyle.SelectionBackColor = Color.FromArgb(220, 235, 252)
-            .DefaultCellStyle.SelectionForeColor = Color.Black
-            .AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(250, 250, 250)
-            .GridColor = Color.FromArgb(230, 230, 230)
-            .EnableHeadersVisualStyles = False
-            .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-            .ColumnHeadersVisible = True
-            .ScrollBars = ScrollBars.None
-        End With
-    End Sub
 
     Private Sub LoadSummaryCards()
         Dim connString As String = "Server=localhost\SQLEXPRESS; DATABASE=PracticeDB; Trusted_Connection=True; TrustServerCertificate=True;"
@@ -153,7 +129,7 @@ Public Class Store
             Dim dt As New DataTable()
             adapter.Fill(dt)
 
-            DataGridView1.DataSource = dt
+            dataStore.DataSource = dt
             conn.Close()
 
         Catch ex As Exception
@@ -167,7 +143,7 @@ Public Class Store
         LoadAllProducts()
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
 
     End Sub
 

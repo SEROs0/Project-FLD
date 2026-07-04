@@ -13,7 +13,6 @@ Public Class OrderDetail
 
         LoadOrderInfo(SelectedOrderId)
         LoadOrderItems(SelectedOrderId)
-        StyleDataGridView()
     End Sub
 
     Private Sub LoadOrderInfo(orderId As String)
@@ -82,10 +81,10 @@ Public Class OrderDetail
             Dim dt As New DataTable()
             adapter.Fill(dt)
 
-            DataGridView1.DataSource = dt
-            DataGridView1.RowHeadersVisible = False
-            DataGridView1.AllowUserToAddRows = False
-            DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+            dataOrderDetail.DataSource = dt
+            dataOrderDetail.RowHeadersVisible = False
+            dataOrderDetail.AllowUserToAddRows = False
+            dataOrderDetail.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 
             conn.Close()
 
@@ -98,31 +97,6 @@ Public Class OrderDetail
         Me.Close()
     End Sub
 
-    Private Sub StyleDataGridView()
-        StyleGrid(DataGridView1)
-
-    End Sub
-
-    Private Sub StyleGrid(grid As DataGridView)
-        With grid
-            .BackgroundColor = Color.White
-            .BorderStyle = BorderStyle.None
-            .RowHeadersVisible = False
-            .AllowUserToAddRows = False
-            .ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245)
-            .ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 9, FontStyle.Bold)
-            .ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-            .DefaultCellStyle.Font = New Font("Segoe UI", 9)
-            .DefaultCellStyle.SelectionBackColor = Color.FromArgb(220, 235, 252)
-            .DefaultCellStyle.SelectionForeColor = Color.Black
-            .AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(250, 250, 250)
-            .GridColor = Color.FromArgb(230, 230, 230)
-            .EnableHeadersVisualStyles = False
-            .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-            .ColumnHeadersVisible = True
-            .ScrollBars = ScrollBars.None
-        End With
-    End Sub
 
     Private Sub btnJOB_Click(sender As Object, e As EventArgs) Handles btnJOB.Click
 

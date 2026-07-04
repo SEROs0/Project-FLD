@@ -10,6 +10,8 @@ Public Class JobDetails
         LoadProductGrid()
         ShowWarningBanner()
         CheckPRExists()
+
+        btncancelPR.Visible = False
     End Sub
 
     Private Sub LoadProductGrid()
@@ -201,11 +203,18 @@ Public Class JobDetails
                 Integer.TryParse(row.Cells("ขอเพิ่ม").Value?.ToString(), qtyNeeded)
                 If qtyNeeded <= 0 Then Continue For
 
+                Dim cmdNextId As New SqlCommand(
+                "SELECT ISNULL(MAX(pr_id), 0) + 1 FROM purchase_requests",
+                conn, trans)
+                Dim nextId As Integer = cmdNextId.ExecuteScalar()
+                Dim prCode As String = "PR-" & nextId.ToString("000")
+
                 Dim sqlPR As String = "INSERT INTO purchase_requests 
-                                   (order_id, job_id, product_id, qty_needed, note, pr_status, created_date)
-                                   VALUES (@orderId, @jobId, @productId, @qtyNeeded, @note, 'PENDING', GETDATE())"
+                                   (pr_code,order_id, job_id, product_id, qty_needed, note, pr_status, created_date)
+                                   VALUES (@prCode,@orderId, @jobId, @productId, @qtyNeeded, @note, 'PENDING', GETDATE())"
 
                 Dim cmdPR As New SqlCommand(sqlPR, conn, trans)
+                cmdPR.Parameters.AddWithValue("@prCode", prCode)
                 cmdPR.Parameters.AddWithValue("@orderId", orderId)
                 cmdPR.Parameters.AddWithValue("@jobId", jobId)
                 cmdPR.Parameters.AddWithValue("@productId", productId)
@@ -259,8 +268,10 @@ Public Class JobDetails
 
             If existing > 0 Then
                 btnPR.Visible = False
+                btncancelPR.Visible = False
             Else
                 btnPR.Visible = True
+                btncancelPR.Visible = True
             End If
 
             conn.Close()

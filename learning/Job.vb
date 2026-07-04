@@ -8,6 +8,8 @@ Public Class Job
     Private Sub Job_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitDropdown()
         LoadJobTable()
+
+
     End Sub
 
     Private Sub InitDropdown()
@@ -80,7 +82,6 @@ Public Class Job
             tableJob.DataSource = dt
             HideInternalColumns()
             AddActionButton()
-            StyleJobGrid()
 
             lbljobs.Text = dt.Rows.Count.ToString()
 
@@ -154,21 +155,6 @@ Public Class Job
         Next
     End Sub
 
-    Private Sub StyleJobGrid()
-        With tableJob
-            .RowHeadersVisible = False
-            .AllowUserToAddRows = False
-            .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-            .EnableHeadersVisualStyles = False
-            .ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 128, 255)
-            .ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 10, FontStyle.Bold)
-            .DefaultCellStyle.Font = New Font("Segoe UI", 9)
-            .GridColor = Color.FromArgb(230, 230, 230)
-            .BorderStyle = BorderStyle.None
-            .BackgroundColor = Color.White
-        End With
-    End Sub
-
     Private Sub tableJob_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles tableJob.RowPostPaint
         If e.RowIndex < 0 OrElse e.RowIndex >= tableJob.Rows.Count Then Exit Sub
         Dim row As DataGridViewRow = tableJob.Rows(e.RowIndex)
@@ -176,9 +162,9 @@ Public Class Job
 
         Dim result As String = row.Cells("ผลตรวจ").Value?.ToString()
         Select Case result
-            Case "พอ"
-                row.DefaultCellStyle.ForeColor = Color.FromArgb(39, 80, 10)
-                row.DefaultCellStyle.BackColor = Color.FromArgb(234, 243, 222)
+            'Case "พอ"
+            'row.DefaultCellStyle.ForeColor = Color.FromArgb(39, 80, 10)
+            'row.DefaultCellStyle.BackColor = Color.FromArgb(234, 243, 222)
             Case "ไม่พอ"
                 row.DefaultCellStyle.ForeColor = Color.FromArgb(121, 31, 31)
                 row.DefaultCellStyle.BackColor = Color.FromArgb(252, 235, 235)
@@ -219,23 +205,23 @@ Public Class Job
         Dim result As String = row.Cells("ผลตรวจ").Value?.ToString()
 
         If itemStatus = "DONE" OrElse itemStatus = "CANCELLED" Then
-            Dim bg = If(row.DefaultCellStyle.BackColor = Color.Empty,
-                        Color.FromArgb(234, 243, 222),
-                        row.DefaultCellStyle.BackColor)
-            e.CellStyle.BackColor = bg
-            e.CellStyle.ForeColor = Color.Transparent
-            e.CellStyle.SelectionBackColor = bg
-            e.CellStyle.SelectionForeColor = Color.Transparent
-        ElseIf result = "พอ" Then
-            e.CellStyle.BackColor = Color.FromArgb(39, 120, 10)
-            e.CellStyle.ForeColor = Color.White
-            e.CellStyle.SelectionBackColor = Color.FromArgb(39, 120, 10)
-            e.CellStyle.SelectionForeColor = Color.White
-        Else
-            e.CellStyle.BackColor = Color.FromArgb(180, 80, 10)
-            e.CellStyle.ForeColor = Color.White
-            e.CellStyle.SelectionBackColor = Color.FromArgb(180, 80, 10)
-            e.CellStyle.SelectionForeColor = Color.White
+            'Dim bg = If(row.DefaultCellStyle.BackColor = Color.Empty,
+            'Color.FromArgb(234, 243, 222),
+            'row.DefaultCellStyle.BackColor)
+            'e.CellStyle.BackColor = bg
+            'e.CellStyle.ForeColor = Color.Transparent
+            'e.CellStyle.SelectionBackColor = bg
+            'e.CellStyle.SelectionForeColor = Color.Transparent
+            'ElseIf result = "พอ" Then
+            'e.CellStyle.BackColor = Color.FromArgb(39, 120, 10)
+            'e.CellStyle.ForeColor = Color.White
+            'e.CellStyle.SelectionBackColor = Color.FromArgb(39, 120, 10)
+            'e.CellStyle.SelectionForeColor = Color.White
+            'Else
+            'e.CellStyle.BackColor = Color.FromArgb(180, 80, 10)
+            ' e.CellStyle.ForeColor = Color.White
+            'e.CellStyle.SelectionBackColor = Color.FromArgb(180, 80, 10)
+            'e.CellStyle.SelectionForeColor = Color.White
         End If
     End Sub
 

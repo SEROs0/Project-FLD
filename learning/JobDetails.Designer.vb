@@ -39,6 +39,8 @@ Partial Class JobDetails
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
         btnclose = New Guna.UI2.WinForms.Guna2Button()
@@ -56,10 +58,12 @@ Partial Class JobDetails
         Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
         panelWarning = New Guna.UI2.WinForms.Guna2Panel()
         lblWarning = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Guna2Panel1.SuspendLayout()
         CType(Guna2PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         CType(Guna2DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         panelWarning.SuspendLayout()
+        Guna2Panel2.SuspendLayout()
         SuspendLayout()
         ' 
         ' Guna2Panel1
@@ -70,7 +74,7 @@ Partial Class JobDetails
         Guna2Panel1.Controls.Add(orderCode)
         Guna2Panel1.Controls.Add(Guna2HtmlLabel1)
         Guna2Panel1.CustomizableEdges = CustomizableEdges5
-        Guna2Panel1.Location = New Point(1, 0)
+        Guna2Panel1.Location = New Point(0, 0)
         Guna2Panel1.Name = "Guna2Panel1"
         Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         Guna2Panel1.Size = New Size(474, 68)
@@ -125,13 +129,13 @@ Partial Class JobDetails
         Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
         Guna2HtmlLabel1.Size = New Size(116, 23)
         Guna2HtmlLabel1.TabIndex = 0
-        Guna2HtmlLabel1.Text = "สร้างใบขอซื้ิอ (PR)"
+        Guna2HtmlLabel1.Text = "สร้างใบขอซื้อ (PR)"
         ' 
         ' Guna2HtmlLabel4
         ' 
         Guna2HtmlLabel4.BackColor = Color.Transparent
         Guna2HtmlLabel4.Font = New Font("Segoe UI", 12F)
-        Guna2HtmlLabel4.Location = New Point(69, 127)
+        Guna2HtmlLabel4.Location = New Point(68, 127)
         Guna2HtmlLabel4.Name = "Guna2HtmlLabel4"
         Guna2HtmlLabel4.Size = New Size(37, 23)
         Guna2HtmlLabel4.TabIndex = 3
@@ -141,7 +145,7 @@ Partial Class JobDetails
         ' 
         NameCust.BackColor = Color.Transparent
         NameCust.Font = New Font("Segoe UI", 10F)
-        NameCust.Location = New Point(69, 161)
+        NameCust.Location = New Point(68, 161)
         NameCust.Name = "NameCust"
         NameCust.Size = New Size(38, 19)
         NameCust.TabIndex = 4
@@ -151,7 +155,7 @@ Partial Class JobDetails
         ' 
         DateOrder.BackColor = Color.Transparent
         DateOrder.Font = New Font("Segoe UI", 10F)
-        DateOrder.Location = New Point(329, 161)
+        DateOrder.Location = New Point(328, 161)
         DateOrder.Name = "DateOrder"
         DateOrder.Size = New Size(30, 19)
         DateOrder.TabIndex = 6
@@ -161,7 +165,7 @@ Partial Class JobDetails
         ' 
         Guna2HtmlLabel7.BackColor = Color.Transparent
         Guna2HtmlLabel7.Font = New Font("Segoe UI", 12F)
-        Guna2HtmlLabel7.Location = New Point(329, 127)
+        Guna2HtmlLabel7.Location = New Point(328, 127)
         Guna2HtmlLabel7.Name = "Guna2HtmlLabel7"
         Guna2HtmlLabel7.Size = New Size(74, 23)
         Guna2HtmlLabel7.TabIndex = 5
@@ -171,7 +175,7 @@ Partial Class JobDetails
         ' 
         Guna2HtmlLabel8.BackColor = Color.Transparent
         Guna2HtmlLabel8.Font = New Font("Segoe UI", 12F)
-        Guna2HtmlLabel8.Location = New Point(18, 203)
+        Guna2HtmlLabel8.Location = New Point(17, 203)
         Guna2HtmlLabel8.Name = "Guna2HtmlLabel8"
         Guna2HtmlLabel8.Size = New Size(161, 23)
         Guna2HtmlLabel8.TabIndex = 7
@@ -181,7 +185,7 @@ Partial Class JobDetails
         ' 
         Guna2HtmlLabel9.BackColor = Color.Transparent
         Guna2HtmlLabel9.Font = New Font("Segoe UI", 12F)
-        Guna2HtmlLabel9.Location = New Point(18, 421)
+        Guna2HtmlLabel9.Location = New Point(17, 421)
         Guna2HtmlLabel9.Name = "Guna2HtmlLabel9"
         Guna2HtmlLabel9.Size = New Size(147, 23)
         Guna2HtmlLabel9.TabIndex = 8
@@ -212,7 +216,7 @@ Partial Class JobDetails
         DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
         Guna2DataGridView1.DefaultCellStyle = DataGridViewCellStyle3
         Guna2DataGridView1.GridColor = Color.DodgerBlue
-        Guna2DataGridView1.Location = New Point(18, 232)
+        Guna2DataGridView1.Location = New Point(17, 232)
         Guna2DataGridView1.Name = "Guna2DataGridView1"
         Guna2DataGridView1.RowHeadersVisible = False
         Guna2DataGridView1.Size = New Size(442, 172)
@@ -235,7 +239,7 @@ Partial Class JobDetails
         btnPR.FillColor = Color.Green
         btnPR.Font = New Font("Segoe UI", 9F)
         btnPR.ForeColor = Color.White
-        btnPR.Location = New Point(397, 612)
+        btnPR.Location = New Point(396, 612)
         btnPR.Name = "btnPR"
         btnPR.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         btnPR.Size = New Size(63, 30)
@@ -252,7 +256,7 @@ Partial Class JobDetails
         btncancelPR.FillColor = Color.Red
         btncancelPR.Font = New Font("Segoe UI", 9F)
         btncancelPR.ForeColor = Color.White
-        btncancelPR.Location = New Point(325, 612)
+        btncancelPR.Location = New Point(324, 612)
         btncancelPR.Name = "btncancelPR"
         btncancelPR.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         btncancelPR.Size = New Size(66, 30)
@@ -272,7 +276,7 @@ Partial Class JobDetails
         Guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         Guna2TextBox1.Font = New Font("Segoe UI", 9F)
         Guna2TextBox1.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        Guna2TextBox1.Location = New Point(18, 450)
+        Guna2TextBox1.Location = New Point(17, 450)
         Guna2TextBox1.Multiline = True
         Guna2TextBox1.Name = "Guna2TextBox1"
         Guna2TextBox1.PlaceholderText = ""
@@ -286,7 +290,7 @@ Partial Class JobDetails
         ' 
         panelWarning.Controls.Add(lblWarning)
         panelWarning.CustomizableEdges = CustomizableEdges13
-        panelWarning.Location = New Point(1, 65)
+        panelWarning.Location = New Point(0, 65)
         panelWarning.Name = "panelWarning"
         panelWarning.ShadowDecoration.CustomizableEdges = CustomizableEdges14
         panelWarning.Size = New Size(474, 50)
@@ -301,24 +305,36 @@ Partial Class JobDetails
         lblWarning.TabIndex = 0
         lblWarning.Text = "Guna2HtmlLabel2"
         ' 
+        ' Guna2Panel2
+        ' 
+        Guna2Panel2.BorderColor = Color.Black
+        Guna2Panel2.BorderThickness = 1
+        Guna2Panel2.Controls.Add(panelWarning)
+        Guna2Panel2.Controls.Add(Guna2TextBox1)
+        Guna2Panel2.Controls.Add(btncancelPR)
+        Guna2Panel2.Controls.Add(btnPR)
+        Guna2Panel2.Controls.Add(Guna2DataGridView1)
+        Guna2Panel2.Controls.Add(Guna2HtmlLabel9)
+        Guna2Panel2.Controls.Add(Guna2HtmlLabel8)
+        Guna2Panel2.Controls.Add(DateOrder)
+        Guna2Panel2.Controls.Add(Guna2HtmlLabel7)
+        Guna2Panel2.Controls.Add(NameCust)
+        Guna2Panel2.Controls.Add(Guna2HtmlLabel4)
+        Guna2Panel2.Controls.Add(Guna2Panel1)
+        Guna2Panel2.CustomizableEdges = CustomizableEdges15
+        Guna2Panel2.Location = New Point(3, 2)
+        Guna2Panel2.Name = "Guna2Panel2"
+        Guna2Panel2.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        Guna2Panel2.Size = New Size(475, 657)
+        Guna2Panel2.TabIndex = 12
+        ' 
         ' JobDetails
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(476, 662)
-        Controls.Add(panelWarning)
-        Controls.Add(Guna2TextBox1)
-        Controls.Add(btncancelPR)
-        Controls.Add(btnPR)
-        Controls.Add(Guna2DataGridView1)
-        Controls.Add(Guna2HtmlLabel9)
-        Controls.Add(Guna2HtmlLabel8)
-        Controls.Add(DateOrder)
-        Controls.Add(Guna2HtmlLabel7)
-        Controls.Add(NameCust)
-        Controls.Add(Guna2HtmlLabel4)
-        Controls.Add(Guna2Panel1)
+        ClientSize = New Size(479, 664)
+        Controls.Add(Guna2Panel2)
         Name = "JobDetails"
         Text = "JobDetails"
         Guna2Panel1.ResumeLayout(False)
@@ -327,8 +343,9 @@ Partial Class JobDetails
         CType(Guna2DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         panelWarning.ResumeLayout(False)
         panelWarning.PerformLayout()
+        Guna2Panel2.ResumeLayout(False)
+        Guna2Panel2.PerformLayout()
         ResumeLayout(False)
-        PerformLayout()
     End Sub
 
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
@@ -348,4 +365,5 @@ Partial Class JobDetails
     Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents panelWarning As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents lblWarning As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
 End Class
