@@ -117,25 +117,21 @@ Public Class JobDetails
     Private Sub StyleProductGrid()
         Guna2DataGridView1.AllowUserToAddRows = False
 
-        ' ปิดการกด Header
         Guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         For Each col As DataGridViewColumn In Guna2DataGridView1.Columns
             col.SortMode = DataGridViewColumnSortMode.NotSortable
         Next
 
-        ' จัดสี Column สต๊อก → แดง
         If Guna2DataGridView1.Columns.Contains("สต๊อก") Then
             Guna2DataGridView1.Columns("สต๊อก").DefaultCellStyle.ForeColor = Color.FromArgb(180, 30, 30)
             Guna2DataGridView1.Columns("สต๊อก").DefaultCellStyle.Font = New Font("Segoe UI", 9, FontStyle.Bold)
         End If
 
-        ' จัดสี Column ขาด → แดง
         If Guna2DataGridView1.Columns.Contains("ขาด") Then
             Guna2DataGridView1.Columns("ขาด").DefaultCellStyle.ForeColor = Color.FromArgb(180, 30, 30)
             Guna2DataGridView1.Columns("ขาด").DefaultCellStyle.Font = New Font("Segoe UI", 9, FontStyle.Bold)
         End If
 
-        ' Column ขอเพิ่ม → แก้ได้
         If Guna2DataGridView1.Columns.Contains("ขอเพิ่ม") Then
             Guna2DataGridView1.Columns("ขอเพิ่ม").ReadOnly = False
             Guna2DataGridView1.Columns("ขอเพิ่ม").DefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255)
@@ -257,7 +253,6 @@ Public Class JobDetails
         Try
             conn.Open()
 
-            ' เช็คว่ามี PR สำหรับ order นี้อยู่แล้วไหม
             Dim cmd As New SqlCommand(
             "SELECT COUNT(*) FROM purchase_requests pr
              JOIN orders o ON o.order_id = pr.order_id

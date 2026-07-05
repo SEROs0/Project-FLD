@@ -159,12 +159,16 @@ Partial Class PRDetail
         comment.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
         comment.DisabledState.ForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
         comment.DisabledState.PlaceholderForeColor = Color.FromArgb(CByte(138), CByte(138), CByte(138))
+        comment.Enabled = False
         comment.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         comment.Font = New Font("Segoe UI", 9F)
         comment.HoverState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
         comment.Location = New Point(33, 524)
+        comment.Multiline = True
         comment.Name = "comment"
         comment.PlaceholderText = ""
+        comment.ReadOnly = True
+        comment.ScrollBars = ScrollBars.Vertical
         comment.SelectedText = ""
         comment.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         comment.Size = New Size(432, 60)
@@ -182,18 +186,19 @@ Partial Class PRDetail
         ' 
         ' dataproduct
         ' 
+        dataproduct.AllowUserToAddRows = False
         DataGridViewCellStyle1.BackColor = Color.White
         dataproduct.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         dataproduct.BorderStyle = BorderStyle.Fixed3D
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        DataGridViewCellStyle2.BackColor = Color.DodgerBlue
         DataGridViewCellStyle2.Font = New Font("Segoe UI", 10F)
         DataGridViewCellStyle2.ForeColor = Color.White
         DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
         dataproduct.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        dataproduct.ColumnHeadersHeight = 4
+        dataproduct.ColumnHeadersHeight = 30
         dataproduct.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
@@ -203,15 +208,17 @@ Partial Class PRDetail
         DataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
         dataproduct.DefaultCellStyle = DataGridViewCellStyle3
-        dataproduct.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dataproduct.GridColor = Color.DodgerBlue
         dataproduct.Location = New Point(34, 301)
         dataproduct.Name = "dataproduct"
         dataproduct.RowHeadersVisible = False
         dataproduct.Size = New Size(432, 178)
         dataproduct.TabIndex = 12
         dataproduct.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
+        dataproduct.ThemeStyle.GridColor = Color.DodgerBlue
+        dataproduct.ThemeStyle.HeaderStyle.BackColor = Color.DodgerBlue
         dataproduct.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 10F)
-        dataproduct.ThemeStyle.HeaderStyle.Height = 4
+        dataproduct.ThemeStyle.HeaderStyle.Height = 30
         dataproduct.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 10F)
         dataproduct.ThemeStyle.RowsStyle.Height = 25
         ' 
@@ -231,9 +238,9 @@ Partial Class PRDetail
         JobCode.Font = New Font("Segoe UI", 10F)
         JobCode.Location = New Point(313, 213)
         JobCode.Name = "JobCode"
-        JobCode.Size = New Size(112, 19)
+        JobCode.Size = New Size(54, 19)
         JobCode.TabIndex = 10
-        JobCode.Text = "Guna2HtmlLabel10"
+        JobCode.Text = "JOB-XXX"
         ' 
         ' Guna2HtmlLabel11
         ' 
@@ -251,9 +258,9 @@ Partial Class PRDetail
         datePR.Font = New Font("Segoe UI", 10F)
         datePR.Location = New Point(33, 213)
         datePR.Name = "datePR"
-        datePR.Size = New Size(105, 19)
+        datePR.Size = New Size(30, 19)
         datePR.TabIndex = 8
-        datePR.Text = "Guna2HtmlLabel8"
+        datePR.Text = "Date"
         ' 
         ' Guna2HtmlLabel9
         ' 
@@ -271,9 +278,9 @@ Partial Class PRDetail
         CustomerName.Font = New Font("Segoe UI", 10F)
         CustomerName.Location = New Point(319, 124)
         CustomerName.Name = "CustomerName"
-        CustomerName.Size = New Size(105, 19)
+        CustomerName.Size = New Size(98, 19)
         CustomerName.TabIndex = 6
-        CustomerName.Text = "Guna2HtmlLabel6"
+        CustomerName.Text = "Customer Name"
         ' 
         ' Guna2HtmlLabel7
         ' 
@@ -291,9 +298,9 @@ Partial Class PRDetail
         OrderCode.Font = New Font("Segoe UI", 10F)
         OrderCode.Location = New Point(33, 124)
         OrderCode.Name = "OrderCode"
-        OrderCode.Size = New Size(105, 19)
+        OrderCode.Size = New Size(59, 19)
         OrderCode.TabIndex = 4
-        OrderCode.Text = "Guna2HtmlLabel4"
+        OrderCode.Text = "ORD-XXX"
         ' 
         ' Guna2Panel2
         ' 
@@ -343,7 +350,7 @@ Partial Class PRDetail
         ' 
         statusPR.BackColor = Color.Transparent
         statusPR.ForeColor = Color.White
-        statusPR.Location = New Point(389, 25)
+        statusPR.Location = New Point(369, 25)
         statusPR.Name = "statusPR"
         statusPR.Size = New Size(34, 17)
         statusPR.TabIndex = 2
@@ -355,9 +362,9 @@ Partial Class PRDetail
         PRCode.ForeColor = Color.White
         PRCode.Location = New Point(66, 36)
         PRCode.Name = "PRCode"
-        PRCode.Size = New Size(98, 17)
+        PRCode.Size = New Size(43, 17)
         PRCode.TabIndex = 1
-        PRCode.Text = "Guna2HtmlLabel2"
+        PRCode.Text = "PR-XXX"
         ' 
         ' Guna2HtmlLabel1
         ' 

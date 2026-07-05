@@ -328,7 +328,7 @@ Public Class Job
     End Sub
 
     Private Sub btnPo_Click(sender As Object, e As EventArgs) Handles btnPo.Click
-        Dim PO As New PO()
+        Dim PO As New PR()
         PO.Show()
         Me.Hide()
     End Sub

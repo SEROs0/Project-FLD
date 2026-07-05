@@ -1,7 +1,9 @@
 ﻿Imports System.Data.SqlClient
 
-Public Class PO
+Public Class PR
+
     Public SelectedOrderCode As String
+
     Private _isLoading As Boolean = False
 
     Private Sub po_load() Handles MyBase.Load
@@ -29,15 +31,12 @@ Public Class PO
         Try
             conn.Open()
 
-            ' PR ทั้งหมด
             Dim cmd1 As New SqlCommand("SELECT COUNT(*) FROM purchase_requests", conn)
             lblPR.Text = cmd1.ExecuteScalar().ToString()
 
-            ' รออนุมัติ
             Dim cmd2 As New SqlCommand("SELECT COUNT(*) FROM purchase_requests WHERE pr_status = 'PENDING'", conn)
             lblwait.Text = cmd2.ExecuteScalar().ToString()
 
-            ' อนุมัติแล้ว
             Dim cmd3 As New SqlCommand("SELECT COUNT(*) FROM purchase_requests WHERE pr_status = 'APPROVED'", conn)
             lblapprov.Text = cmd3.ExecuteScalar().ToString()
 
@@ -64,10 +63,14 @@ Public Class PO
                     pr.created_date     AS วันที่,
                     pr.pr_status        AS สถานะ,
                     pr.note             AS หมายเหตุ,
-                    pr.pr_id            AS pr_id_hidden
+                    pr.pr_id            AS pr_id_hidden,
+                    c.cust_name         AS ชื่อลูกค้า,
+                    j.job_code          AS รหัสงาน  
                 FROM purchase_requests pr
                 JOIN orders o   ON o.order_id   = pr.order_id
-                JOIN products p ON p.product_id = pr.product_id"
+                JOIN products p ON p.product_id = pr.product_id
+                JOIN customers c ON c.cust_id = o.cust_id
+                JOIN jobs j ON o.order_id = j.order_id"
 
             Dim cmd As New SqlCommand()
             cmd.Connection = conn
@@ -85,6 +88,7 @@ Public Class PO
 
             PRtable.DataSource = dt
 
+
             HideInternalColumns()
             AddActionButtons()
 
@@ -96,7 +100,7 @@ Public Class PO
     End Sub
 
     Private Sub HideInternalColumns()
-        Dim hideCols() As String = {"หมายเหตุ", "pr_id_hidden", "ไอดีPR"}
+        Dim hideCols() As String = {"หมายเหตุ", "pr_id_hidden", "ไอดีPR", "ชื่อลูกค้า", "รหัสงาน"}
         For Each col As String In hideCols
             If PRtable.Columns.Contains(col) Then
                 PRtable.Columns(col).Visible = False
@@ -124,14 +128,26 @@ Public Class PO
         Dim row As DataGridViewRow = PRtable.Rows(e.RowIndex)
         Dim prCode As String = row.Cells("รหัสPR").Value?.ToString()
         Dim prId As Integer = Convert.ToInt32(row.Cells("pr_id_hidden").Value)
+        Dim datePR As String = row.Cells("วันที่").Value?.ToString()
         Dim status As String = row.Cells("สถานะ").Value?.ToString()
+        Dim note As String = row.Cells("หมายเหตุ").Value?.ToString()
+        Dim orderCode As String = row.Cells("รหัสOrder").Value?.ToString()
+        Dim custName As String = row.Cells("ชื่อลูกค้า").Value?.ToString()
+        Dim jobCode As String = row.Cells("รหัสงาน").Value?.ToString()
+
 
         If colName = "btnView" Then
             Dim detail As New PRDetail()
-            detail.SelectedPR = prCode   ' ← ส่ง prCode ไป
+            detail.SelectedPR = prCode
+            detail.SelectOrderCode = orderCode
+            detail.SelectStatus = status
+            detail.SelectCustName = custName
+            detail.SelectNote = note
+            detail.SelectDatePR = datePR
+            detail.SelectJobCode = jobCode
+
             detail.ShowDialog()
         End If
-
 
     End Sub
 

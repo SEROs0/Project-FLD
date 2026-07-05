@@ -186,7 +186,7 @@ Public Class Order
     End Sub
 
     Private Sub Guna2Button3_Click(sender As Object, e As EventArgs) Handles btnPo.Click
-        Dim PO As New PO()
+        Dim PO As New PR()
         PO.Show()
         Hide()
     End Sub

@@ -97,9 +97,7 @@ Public Class OrderDetail
         Me.Close()
     End Sub
 
-
     Private Sub btnJOB_Click(sender As Object, e As EventArgs) Handles btnJOB.Click
-
         Dim connString As String = "Server=localhost\SQLEXPRESS;DATABASE=PracticeDB;Trusted_Connection=True;TrustServerCertificate=True"
         Dim conn As New SqlConnection(connString)
 
@@ -122,26 +120,29 @@ Public Class OrderDetail
             cmdCheck.Parameters.AddWithValue("@order_id", orderId)
             Dim existing As Integer = cmdCheck.ExecuteScalar()
 
-            If existing > 0 Then
-                MessageBox.Show("Job สำหรับ Order นี้ถูกสร้างไปแล้ว")
-                conn.Close()
+            If existing = 0 Then
+                Dim cmdNextId As New SqlCommand(
+                "SELECT ISNULL(MAX(job_id), 0) + 1 FROM jobs", conn)
+                Dim nextId As Integer = cmdNextId.ExecuteScalar()
+                Dim jobCode As String = "JOB-" & nextId.ToString("000")
 
+                Dim cmdInsert As New SqlCommand(
+                "INSERT INTO jobs (job_code, order_id, job_status, created_date) 
+                 VALUES (@jobCode, @order_id, 'CHECKING', GETDATE())", conn)
+                cmdInsert.Parameters.AddWithValue("@jobCode", jobCode)
+                cmdInsert.Parameters.AddWithValue("@order_id", orderId)
+                cmdInsert.ExecuteNonQuery()
+
+                MessageBox.Show("สร้าง Job " & jobCode & " เรียบร้อยแล้ว")
+            Else
+                MessageBox.Show("Job สำหรับ Order นี้ถูกสร้างไปแล้ว")
             End If
 
-            Dim cmdInsert As New SqlCommand(
-            "INSERT INTO jobs (order_id, job_status, created_date) 
-             VALUES (@order_id, 'CHECKING', GETDATE())", conn)
-            cmdInsert.Parameters.AddWithValue("@order_id", orderId)
-            cmdInsert.ExecuteNonQuery()
-
             conn.Close()
-            MessageBox.Show("สร้าง Job เรียบร้อยแล้ว")
 
         Catch ex As Exception
             MessageBox.Show("ERROR: " & ex.Message)
         End Try
-
-
     End Sub
 
     Private Sub btnCancelOrder_Click(sender As Object, e As EventArgs) Handles btnCancelOrder.Click
