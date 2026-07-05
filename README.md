@@ -120,7 +120,7 @@ purchase_requests
 
 **1. Clone Repository**
 ```bash
-git clone https://github.com/username/erp-system.git
+[git clone https://github.com/username/erp-system.git](https://github.com/SEROs0/Project-FLD.git)
 ```
 
 **2. สร้าง Database**
