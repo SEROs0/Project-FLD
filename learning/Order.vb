@@ -64,7 +64,6 @@ Public Class Order
         PanelPopup.Visible = False
 
         LoadSummaryCards()
-        StyleDataGridView()
         LoadAllOrders()
     End Sub
 
@@ -114,7 +113,7 @@ Public Class Order
             Dim dt As New DataTable()
             adapter.Fill(dt)
 
-            DataGridView1.DataSource = dt
+            dataOrder.DataSource = dt
 
             AddActionButtons()
 
@@ -127,8 +126,8 @@ Public Class Order
 
     Private Sub AddActionButtons()
 
-        If DataGridView1.Columns.Contains("btnView") Then
-            DataGridView1.Columns.Remove("btnView")
+        If dataOrder.Columns.Contains("btnView") Then
+            dataOrder.Columns.Remove("btnView")
         End If
         'If DataGridView1.Columns.Contains("btnJob") Then
         'DataGridView1.Columns.Remove("btnJob")
@@ -141,7 +140,7 @@ Public Class Order
         viewBtn.Text = "ดู Order"
         viewBtn.UseColumnTextForButtonValue = True
         viewBtn.Width = 80
-        DataGridView1.Columns.Add(viewBtn)
+        dataOrder.Columns.Add(viewBtn)
 
         ' ปุ่ม "Job"
         'Dim jobBtn As New DataGridViewButtonColumn()
@@ -153,37 +152,11 @@ Public Class Order
         'DataGridView1.Columns.Add(jobBtn)
     End Sub
 
-    Private Sub StyleDataGridView()
-        StyleGrid(DataGridView1)
-
-    End Sub
-
-    Private Sub StyleGrid(grid As DataGridView)
-        With grid
-            .BackgroundColor = Color.White
-            .BorderStyle = BorderStyle.None
-            .RowHeadersVisible = False
-            .AllowUserToAddRows = False
-            .ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245)
-            .ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 9, FontStyle.Bold)
-            .ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-            .DefaultCellStyle.Font = New Font("Segoe UI", 9)
-            .DefaultCellStyle.SelectionBackColor = Color.FromArgb(220, 235, 252)
-            .DefaultCellStyle.SelectionForeColor = Color.Black
-            .AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(250, 250, 250)
-            .GridColor = Color.FromArgb(230, 230, 230)
-            .EnableHeadersVisualStyles = False
-            .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-            .ColumnHeadersVisible = True
-            .ScrollBars = ScrollBars.Both
-        End With
-    End Sub
-
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dataOrder.CellContentClick
         If e.RowIndex < 0 Then Exit Sub
 
-        Dim columnName As String = DataGridView1.Columns(e.ColumnIndex).Name
-        Dim orderId As String = DataGridView1.Rows(e.RowIndex).Cells("รหัสใบสั่งซื้อ").Value.ToString()
+        Dim columnName = dataOrder.Columns(e.ColumnIndex).Name
+        Dim orderId = dataOrder.Rows(e.RowIndex).Cells("รหัสใบสั่งซื้อ").Value.ToString
 
         If columnName = "btnView" Then
             Dim detail As New OrderDetail()
@@ -213,7 +186,7 @@ Public Class Order
     End Sub
 
     Private Sub Guna2Button3_Click(sender As Object, e As EventArgs) Handles btnPo.Click
-        Dim PO As New PO()
+        Dim PO As New PR()
         PO.Show()
         Hide()
     End Sub
@@ -252,7 +225,7 @@ Public Class Order
             Dim dt As New DataTable()
             adapter.Fill(dt)
 
-            DataGridView1.DataSource = dt
+            dataOrder.DataSource = dt
             conn.Close()
 
         Catch ex As Exception

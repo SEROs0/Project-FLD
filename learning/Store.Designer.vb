@@ -22,24 +22,26 @@ Partial Class Store
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim CustomizableEdges33 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Store))
-        Dim CustomizableEdges34 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges35 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges36 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges37 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges38 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges39 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges40 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges41 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges42 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges43 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges44 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges45 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges46 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges47 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges48 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        DataGridView1 = New DataGridView()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Label2 = New Label()
         Panel2 = New Panel()
         lblStorkValue = New Label()
@@ -58,23 +60,15 @@ Partial Class Store
         DropdownCategory = New Guna.UI2.WinForms.Guna2ComboBox()
         btnClearSearch = New Guna.UI2.WinForms.Guna2Button()
         btnSearch = New Guna.UI2.WinForms.Guna2GradientButton()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        dataStore = New Guna.UI2.WinForms.Guna2DataGridView()
         Panel2.SuspendLayout()
         Panel3.SuspendLayout()
         Panel4.SuspendLayout()
         CType(Guna2PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         Panel6.SuspendLayout()
         CType(Guna2PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dataStore, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
-        ' 
-        ' DataGridView1
-        ' 
-        DataGridView1.BackgroundColor = SystemColors.ButtonHighlight
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(147, 280)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.Size = New Size(777, 225)
-        DataGridView1.TabIndex = 3
         ' 
         ' Label2
         ' 
@@ -167,7 +161,7 @@ Partial Class Store
         ' 
         ' btnPo
         ' 
-        btnPo.CustomizableEdges = CustomizableEdges33
+        btnPo.CustomizableEdges = CustomizableEdges1
         btnPo.DisabledState.BorderColor = Color.DarkGray
         btnPo.DisabledState.CustomBorderColor = Color.DarkGray
         btnPo.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -181,7 +175,7 @@ Partial Class Store
         btnPo.ImageSize = New Size(50, 50)
         btnPo.Location = New Point(3, 254)
         btnPo.Name = "btnPo"
-        btnPo.ShadowDecoration.CustomizableEdges = CustomizableEdges34
+        btnPo.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         btnPo.Size = New Size(121, 71)
         btnPo.TabIndex = 6
         btnPo.Text = "PR/PO"
@@ -190,7 +184,7 @@ Partial Class Store
         ' 
         ' btnJob
         ' 
-        btnJob.CustomizableEdges = CustomizableEdges35
+        btnJob.CustomizableEdges = CustomizableEdges3
         btnJob.DisabledState.BorderColor = Color.DarkGray
         btnJob.DisabledState.CustomBorderColor = Color.DarkGray
         btnJob.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -204,7 +198,7 @@ Partial Class Store
         btnJob.ImageSize = New Size(50, 50)
         btnJob.Location = New Point(3, 175)
         btnJob.Name = "btnJob"
-        btnJob.ShadowDecoration.CustomizableEdges = CustomizableEdges36
+        btnJob.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         btnJob.Size = New Size(121, 73)
         btnJob.TabIndex = 5
         btnJob.Text = "JOB"
@@ -213,7 +207,7 @@ Partial Class Store
         ' 
         ' btnOrder
         ' 
-        btnOrder.CustomizableEdges = CustomizableEdges37
+        btnOrder.CustomizableEdges = CustomizableEdges5
         btnOrder.DisabledState.BorderColor = Color.DarkGray
         btnOrder.DisabledState.CustomBorderColor = Color.DarkGray
         btnOrder.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -227,7 +221,7 @@ Partial Class Store
         btnOrder.ImageSize = New Size(50, 50)
         btnOrder.Location = New Point(3, 99)
         btnOrder.Name = "btnOrder"
-        btnOrder.ShadowDecoration.CustomizableEdges = CustomizableEdges38
+        btnOrder.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         btnOrder.Size = New Size(121, 70)
         btnOrder.TabIndex = 4
         btnOrder.Text = "Orders"
@@ -236,13 +230,13 @@ Partial Class Store
         ' 
         ' Guna2PictureBox2
         ' 
-        Guna2PictureBox2.CustomizableEdges = CustomizableEdges39
+        Guna2PictureBox2.CustomizableEdges = CustomizableEdges7
         Guna2PictureBox2.FillColor = Color.Transparent
         Guna2PictureBox2.Image = My.Resources.Resources.Gear
         Guna2PictureBox2.ImageRotate = 0F
         Guna2PictureBox2.Location = New Point(26, 26)
         Guna2PictureBox2.Name = "Guna2PictureBox2"
-        Guna2PictureBox2.ShadowDecoration.CustomizableEdges = CustomizableEdges40
+        Guna2PictureBox2.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         Guna2PictureBox2.Size = New Size(75, 50)
         Guna2PictureBox2.TabIndex = 3
         Guna2PictureBox2.TabStop = False
@@ -259,12 +253,12 @@ Partial Class Store
         ' 
         ' Guna2PictureBox1
         ' 
-        Guna2PictureBox1.CustomizableEdges = CustomizableEdges41
+        Guna2PictureBox1.CustomizableEdges = CustomizableEdges9
         Guna2PictureBox1.Image = My.Resources.Resources.Warehouse
         Guna2PictureBox1.ImageRotate = 0F
         Guna2PictureBox1.Location = New Point(24, 12)
         Guna2PictureBox1.Name = "Guna2PictureBox1"
-        Guna2PictureBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges42
+        Guna2PictureBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         Guna2PictureBox1.Size = New Size(43, 50)
         Guna2PictureBox1.TabIndex = 2
         Guna2PictureBox1.TabStop = False
@@ -283,7 +277,7 @@ Partial Class Store
         ' DropdownCategory
         ' 
         DropdownCategory.BackColor = Color.Transparent
-        DropdownCategory.CustomizableEdges = CustomizableEdges43
+        DropdownCategory.CustomizableEdges = CustomizableEdges11
         DropdownCategory.DrawMode = DrawMode.OwnerDrawFixed
         DropdownCategory.DropDownStyle = ComboBoxStyle.DropDownList
         DropdownCategory.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
@@ -293,13 +287,13 @@ Partial Class Store
         DropdownCategory.ItemHeight = 30
         DropdownCategory.Location = New Point(147, 186)
         DropdownCategory.Name = "DropdownCategory"
-        DropdownCategory.ShadowDecoration.CustomizableEdges = CustomizableEdges44
+        DropdownCategory.ShadowDecoration.CustomizableEdges = CustomizableEdges12
         DropdownCategory.Size = New Size(171, 36)
         DropdownCategory.TabIndex = 20
         ' 
         ' btnClearSearch
         ' 
-        btnClearSearch.CustomizableEdges = CustomizableEdges45
+        btnClearSearch.CustomizableEdges = CustomizableEdges13
         btnClearSearch.DisabledState.BorderColor = Color.DarkGray
         btnClearSearch.DisabledState.CustomBorderColor = Color.DarkGray
         btnClearSearch.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -311,14 +305,14 @@ Partial Class Store
         btnClearSearch.Image = My.Resources.Resources.Clear_Search
         btnClearSearch.Location = New Point(405, 186)
         btnClearSearch.Name = "btnClearSearch"
-        btnClearSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges46
+        btnClearSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges14
         btnClearSearch.Size = New Size(107, 36)
         btnClearSearch.TabIndex = 24
         btnClearSearch.Text = "ล้างการค้นหา"
         ' 
         ' btnSearch
         ' 
-        btnSearch.CustomizableEdges = CustomizableEdges47
+        btnSearch.CustomizableEdges = CustomizableEdges15
         btnSearch.DisabledState.BorderColor = Color.DarkGray
         btnSearch.DisabledState.CustomBorderColor = Color.DarkGray
         btnSearch.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -331,10 +325,48 @@ Partial Class Store
         btnSearch.Image = My.Resources.Resources.Search
         btnSearch.Location = New Point(323, 186)
         btnSearch.Name = "btnSearch"
-        btnSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges48
+        btnSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges16
         btnSearch.Size = New Size(76, 36)
         btnSearch.TabIndex = 23
         btnSearch.Text = "ค้นหา"
+        ' 
+        ' dataStore
+        ' 
+        dataStore.AllowUserToAddRows = False
+        DataGridViewCellStyle1.BackColor = Color.White
+        dataStore.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        dataStore.BorderStyle = BorderStyle.Fixed3D
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = Color.DodgerBlue
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle2.ForeColor = Color.White
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
+        dataStore.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        dataStore.ColumnHeadersHeight = 30
+        dataStore.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = Color.White
+        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        DataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
+        dataStore.DefaultCellStyle = DataGridViewCellStyle3
+        dataStore.GridColor = Color.DodgerBlue
+        dataStore.Location = New Point(147, 280)
+        dataStore.Name = "dataStore"
+        dataStore.RowHeadersVisible = False
+        dataStore.Size = New Size(771, 353)
+        dataStore.TabIndex = 25
+        dataStore.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
+        dataStore.ThemeStyle.GridColor = Color.DodgerBlue
+        dataStore.ThemeStyle.HeaderStyle.BackColor = Color.DodgerBlue
+        dataStore.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
+        dataStore.ThemeStyle.HeaderStyle.Height = 30
+        dataStore.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)
+        dataStore.ThemeStyle.RowsStyle.Height = 25
         ' 
         ' Store
         ' 
@@ -342,6 +374,7 @@ Partial Class Store
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(1350, 747)
+        Controls.Add(dataStore)
         Controls.Add(btnClearSearch)
         Controls.Add(btnSearch)
         Controls.Add(DropdownCategory)
@@ -350,10 +383,8 @@ Partial Class Store
         Controls.Add(Panel3)
         Controls.Add(Panel2)
         Controls.Add(Label2)
-        Controls.Add(DataGridView1)
         Name = "Store"
         Text = "Form2"
-        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)
         Panel2.PerformLayout()
         Panel3.ResumeLayout(False)
@@ -363,10 +394,10 @@ Partial Class Store
         Panel6.ResumeLayout(False)
         Panel6.PerformLayout()
         CType(Guna2PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(dataStore, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Label2 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents lblStorkValue As Label
@@ -385,4 +416,5 @@ Partial Class Store
     Friend WithEvents DropdownCategory As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents btnClearSearch As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnSearch As Guna.UI2.WinForms.Guna2GradientButton
+    Friend WithEvents dataStore As Guna.UI2.WinForms.Guna2DataGridView
 End Class

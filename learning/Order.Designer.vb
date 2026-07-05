@@ -71,6 +71,9 @@ Partial Class Order
         Dim CustomizableEdges42 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges47 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges48 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Panel1 = New Panel()
         btnPo = New Guna.UI2.WinForms.Guna2Button()
         btnJob = New Guna.UI2.WinForms.Guna2Button()
@@ -89,7 +92,6 @@ Partial Class Order
         Panel3 = New Panel()
         Panel4 = New Panel()
         Panel5 = New Panel()
-        DataGridView1 = New DataGridView()
         Panel6 = New Panel()
         Guna2PictureBox1 = New Guna.UI2.WinForms.Guna2PictureBox()
         btnStatus = New Guna.UI2.WinForms.Guna2ComboBox()
@@ -124,13 +126,13 @@ Partial Class Order
         Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         btnCancel = New Guna.UI2.WinForms.Guna2Button()
         btnAdd = New Guna.UI2.WinForms.Guna2Button()
+        dataOrder = New Guna.UI2.WinForms.Guna2DataGridView()
         Panel1.SuspendLayout()
         CType(Guna2PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
         Panel3.SuspendLayout()
         Panel4.SuspendLayout()
         Panel5.SuspendLayout()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         Panel6.SuspendLayout()
         CType(Guna2PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         PanelPopup.SuspendLayout()
@@ -140,6 +142,7 @@ Partial Class Order
         panelPrice.SuspendLayout()
         Guna2Panel1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dataOrder, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Panel1
@@ -373,15 +376,6 @@ Partial Class Order
         Panel5.Name = "Panel5"
         Panel5.Size = New Size(111, 72)
         Panel5.TabIndex = 13
-        ' 
-        ' DataGridView1
-        ' 
-        DataGridView1.BackgroundColor = SystemColors.ButtonHighlight
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Location = New Point(147, 280)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.Size = New Size(686, 375)
-        DataGridView1.TabIndex = 17
         ' 
         ' Panel6
         ' 
@@ -851,12 +845,51 @@ Partial Class Order
         btnAdd.TabIndex = 27
         btnAdd.Text = "สร้าง Order"
         ' 
+        ' dataOrder
+        ' 
+        dataOrder.AllowUserToAddRows = False
+        DataGridViewCellStyle1.BackColor = Color.White
+        dataOrder.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        dataOrder.BorderStyle = BorderStyle.Fixed3D
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = Color.DodgerBlue
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle2.ForeColor = Color.White
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
+        dataOrder.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        dataOrder.ColumnHeadersHeight = 30
+        dataOrder.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = Color.White
+        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        DataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
+        dataOrder.DefaultCellStyle = DataGridViewCellStyle3
+        dataOrder.GridColor = Color.DodgerBlue
+        dataOrder.Location = New Point(147, 280)
+        dataOrder.Name = "dataOrder"
+        dataOrder.RowHeadersVisible = False
+        dataOrder.Size = New Size(686, 421)
+        dataOrder.TabIndex = 29
+        dataOrder.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
+        dataOrder.ThemeStyle.GridColor = Color.DodgerBlue
+        dataOrder.ThemeStyle.HeaderStyle.BackColor = Color.DodgerBlue
+        dataOrder.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
+        dataOrder.ThemeStyle.HeaderStyle.Height = 30
+        dataOrder.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)
+        dataOrder.ThemeStyle.RowsStyle.Height = 25
+        ' 
         ' Order
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(1348, 744)
+        ClientSize = New Size(1348, 724)
+        Controls.Add(dataOrder)
         Controls.Add(PanelPopup)
         Controls.Add(btnAdd)
         Controls.Add(Guna2HtmlLabel1)
@@ -864,7 +897,6 @@ Partial Class Order
         Controls.Add(btnSearch)
         Controls.Add(btnStatus)
         Controls.Add(Panel6)
-        Controls.Add(DataGridView1)
         Controls.Add(Panel5)
         Controls.Add(Panel4)
         Controls.Add(Panel3)
@@ -882,7 +914,6 @@ Partial Class Order
         Panel4.PerformLayout()
         Panel5.ResumeLayout(False)
         Panel5.PerformLayout()
-        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         Panel6.ResumeLayout(False)
         Panel6.PerformLayout()
         CType(Guna2PictureBox1, ComponentModel.ISupportInitialize).EndInit()
@@ -897,6 +928,7 @@ Partial Class Order
         Guna2Panel1.ResumeLayout(False)
         Guna2Panel1.PerformLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(dataOrder, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -914,7 +946,6 @@ Partial Class Order
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel5 As Panel
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Panel6 As Panel
     Friend WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
     Friend WithEvents Guna2PictureBox2 As Guna.UI2.WinForms.Guna2PictureBox
@@ -953,4 +984,5 @@ Partial Class Order
     Friend WithEvents Guna2HtmlLabel3 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents CancelOrderBtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents SaveOrderBtn As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents dataOrder As Guna.UI2.WinForms.Guna2DataGridView
 End Class

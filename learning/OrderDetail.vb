@@ -13,7 +13,6 @@ Public Class OrderDetail
 
         LoadOrderInfo(SelectedOrderId)
         LoadOrderItems(SelectedOrderId)
-        StyleDataGridView()
     End Sub
 
     Private Sub LoadOrderInfo(orderId As String)
@@ -82,10 +81,10 @@ Public Class OrderDetail
             Dim dt As New DataTable()
             adapter.Fill(dt)
 
-            DataGridView1.DataSource = dt
-            DataGridView1.RowHeadersVisible = False
-            DataGridView1.AllowUserToAddRows = False
-            DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+            dataOrderDetail.DataSource = dt
+            dataOrderDetail.RowHeadersVisible = False
+            dataOrderDetail.AllowUserToAddRows = False
+            dataOrderDetail.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
 
             conn.Close()
 
@@ -98,34 +97,7 @@ Public Class OrderDetail
         Me.Close()
     End Sub
 
-    Private Sub StyleDataGridView()
-        StyleGrid(DataGridView1)
-
-    End Sub
-
-    Private Sub StyleGrid(grid As DataGridView)
-        With grid
-            .BackgroundColor = Color.White
-            .BorderStyle = BorderStyle.None
-            .RowHeadersVisible = False
-            .AllowUserToAddRows = False
-            .ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245)
-            .ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 9, FontStyle.Bold)
-            .ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-            .DefaultCellStyle.Font = New Font("Segoe UI", 9)
-            .DefaultCellStyle.SelectionBackColor = Color.FromArgb(220, 235, 252)
-            .DefaultCellStyle.SelectionForeColor = Color.Black
-            .AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(250, 250, 250)
-            .GridColor = Color.FromArgb(230, 230, 230)
-            .EnableHeadersVisualStyles = False
-            .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-            .ColumnHeadersVisible = True
-            .ScrollBars = ScrollBars.None
-        End With
-    End Sub
-
     Private Sub btnJOB_Click(sender As Object, e As EventArgs) Handles btnJOB.Click
-
         Dim connString As String = "Server=localhost\SQLEXPRESS;DATABASE=PracticeDB;Trusted_Connection=True;TrustServerCertificate=True"
         Dim conn As New SqlConnection(connString)
 
@@ -148,26 +120,29 @@ Public Class OrderDetail
             cmdCheck.Parameters.AddWithValue("@order_id", orderId)
             Dim existing As Integer = cmdCheck.ExecuteScalar()
 
-            If existing > 0 Then
-                MessageBox.Show("Job สำหรับ Order นี้ถูกสร้างไปแล้ว")
-                conn.Close()
+            If existing = 0 Then
+                Dim cmdNextId As New SqlCommand(
+                "SELECT ISNULL(MAX(job_id), 0) + 1 FROM jobs", conn)
+                Dim nextId As Integer = cmdNextId.ExecuteScalar()
+                Dim jobCode As String = "JOB-" & nextId.ToString("000")
 
+                Dim cmdInsert As New SqlCommand(
+                "INSERT INTO jobs (job_code, order_id, job_status, created_date) 
+                 VALUES (@jobCode, @order_id, 'CHECKING', GETDATE())", conn)
+                cmdInsert.Parameters.AddWithValue("@jobCode", jobCode)
+                cmdInsert.Parameters.AddWithValue("@order_id", orderId)
+                cmdInsert.ExecuteNonQuery()
+
+                MessageBox.Show("สร้าง Job " & jobCode & " เรียบร้อยแล้ว")
+            Else
+                MessageBox.Show("Job สำหรับ Order นี้ถูกสร้างไปแล้ว")
             End If
 
-            Dim cmdInsert As New SqlCommand(
-            "INSERT INTO jobs (order_id, job_status, created_date) 
-             VALUES (@order_id, 'CHECKING', GETDATE())", conn)
-            cmdInsert.Parameters.AddWithValue("@order_id", orderId)
-            cmdInsert.ExecuteNonQuery()
-
             conn.Close()
-            MessageBox.Show("สร้าง Job เรียบร้อยแล้ว")
 
         Catch ex As Exception
             MessageBox.Show("ERROR: " & ex.Message)
         End Try
-
-
     End Sub
 
     Private Sub btnCancelOrder_Click(sender As Object, e As EventArgs) Handles btnCancelOrder.Click

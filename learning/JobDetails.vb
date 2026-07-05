@@ -10,6 +10,8 @@ Public Class JobDetails
         LoadProductGrid()
         ShowWarningBanner()
         CheckPRExists()
+
+        btncancelPR.Visible = False
     End Sub
 
     Private Sub LoadProductGrid()
@@ -115,25 +117,21 @@ Public Class JobDetails
     Private Sub StyleProductGrid()
         Guna2DataGridView1.AllowUserToAddRows = False
 
-        ' ปิดการกด Header
         Guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         For Each col As DataGridViewColumn In Guna2DataGridView1.Columns
             col.SortMode = DataGridViewColumnSortMode.NotSortable
         Next
 
-        ' จัดสี Column สต๊อก → แดง
         If Guna2DataGridView1.Columns.Contains("สต๊อก") Then
             Guna2DataGridView1.Columns("สต๊อก").DefaultCellStyle.ForeColor = Color.FromArgb(180, 30, 30)
             Guna2DataGridView1.Columns("สต๊อก").DefaultCellStyle.Font = New Font("Segoe UI", 9, FontStyle.Bold)
         End If
 
-        ' จัดสี Column ขาด → แดง
         If Guna2DataGridView1.Columns.Contains("ขาด") Then
             Guna2DataGridView1.Columns("ขาด").DefaultCellStyle.ForeColor = Color.FromArgb(180, 30, 30)
             Guna2DataGridView1.Columns("ขาด").DefaultCellStyle.Font = New Font("Segoe UI", 9, FontStyle.Bold)
         End If
 
-        ' Column ขอเพิ่ม → แก้ได้
         If Guna2DataGridView1.Columns.Contains("ขอเพิ่ม") Then
             Guna2DataGridView1.Columns("ขอเพิ่ม").ReadOnly = False
             Guna2DataGridView1.Columns("ขอเพิ่ม").DefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255)
@@ -201,11 +199,18 @@ Public Class JobDetails
                 Integer.TryParse(row.Cells("ขอเพิ่ม").Value?.ToString(), qtyNeeded)
                 If qtyNeeded <= 0 Then Continue For
 
+                Dim cmdNextId As New SqlCommand(
+                "SELECT ISNULL(MAX(pr_id), 0) + 1 FROM purchase_requests",
+                conn, trans)
+                Dim nextId As Integer = cmdNextId.ExecuteScalar()
+                Dim prCode As String = "PR-" & nextId.ToString("000")
+
                 Dim sqlPR As String = "INSERT INTO purchase_requests 
-                                   (order_id, job_id, product_id, qty_needed, note, pr_status, created_date)
-                                   VALUES (@orderId, @jobId, @productId, @qtyNeeded, @note, 'PENDING', GETDATE())"
+                                   (pr_code,order_id, job_id, product_id, qty_needed, note, pr_status, created_date)
+                                   VALUES (@prCode,@orderId, @jobId, @productId, @qtyNeeded, @note, 'PENDING', GETDATE())"
 
                 Dim cmdPR As New SqlCommand(sqlPR, conn, trans)
+                cmdPR.Parameters.AddWithValue("@prCode", prCode)
                 cmdPR.Parameters.AddWithValue("@orderId", orderId)
                 cmdPR.Parameters.AddWithValue("@jobId", jobId)
                 cmdPR.Parameters.AddWithValue("@productId", productId)
@@ -248,7 +253,6 @@ Public Class JobDetails
         Try
             conn.Open()
 
-            ' เช็คว่ามี PR สำหรับ order นี้อยู่แล้วไหม
             Dim cmd As New SqlCommand(
             "SELECT COUNT(*) FROM purchase_requests pr
              JOIN orders o ON o.order_id = pr.order_id
@@ -259,8 +263,10 @@ Public Class JobDetails
 
             If existing > 0 Then
                 btnPR.Visible = False
+                btncancelPR.Visible = False
             Else
                 btnPR.Visible = True
+                btncancelPR.Visible = True
             End If
 
             conn.Close()

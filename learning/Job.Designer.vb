@@ -309,10 +309,12 @@ Partial Class Job
         ' 
         ' tableJob
         ' 
+        tableJob.AllowUserToAddRows = False
         DataGridViewCellStyle1.BackColor = Color.White
         tableJob.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        tableJob.BorderStyle = BorderStyle.Fixed3D
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        DataGridViewCellStyle2.BackColor = Color.DodgerBlue
         DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
         DataGridViewCellStyle2.ForeColor = Color.White
         DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
@@ -337,6 +339,7 @@ Partial Class Job
         tableJob.TabIndex = 23
         tableJob.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
         tableJob.ThemeStyle.GridColor = Color.DodgerBlue
+        tableJob.ThemeStyle.HeaderStyle.BackColor = Color.DodgerBlue
         tableJob.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
         tableJob.ThemeStyle.HeaderStyle.Height = 30
         tableJob.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)
